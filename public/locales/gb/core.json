@@ -1,0 +1,20 @@
+{
+  "test": "testEN",
+  "navigationLeft": {
+    "dashboard": "Dashboard",
+    "messages": "Messages",
+    "orders": "Orders",
+    "contractors": "Contractors",
+    "vehicles": "Vehicles",
+    "fuelCards": "Fuel cards",
+    "leases": "Lease Agreements",
+    "map": "Map",
+    "employees": "Employees",
+    "drivers": "Drivers",
+    "invoices": "Invoices",
+    "stats": "Stats",
+    "myCompany": "My company",
+    "settings": "My account",
+    "reportBug": "Report bug"
+  }
+}

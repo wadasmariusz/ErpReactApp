@@ -1,0 +1,20 @@
+{
+  "test": "testPL",
+  "navigationLeft": {
+    "dashboard": "Pulpit",
+    "messages": "Wiadomości",
+    "orders": "Zlecenia",
+    "contractors": "Kontrahenci",
+    "vehicles": "Pojazdy",
+    "fuelCards": "Karty paliwowe",
+    "leases": "Umowy leasingu",
+    "map": "Mapa",
+    "employees": "Pracownicy",
+    "drivers": "Kierowcy",
+    "invoices": "Faktury",
+    "stats": "Statystyki",
+    "myCompany": "Moja firma",
+    "settings": "Moje konto",
+    "reportBug": "Zgłoś błąd"
+  }
+}

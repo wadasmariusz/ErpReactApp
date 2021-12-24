@@ -1,0 +1,144 @@
+.notice-card {
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 25px 0 rgba($pure-black, 0.25);
+  }
+
+  .item-name {
+    font-weight: 600;
+    color: $headings-color;
+    a {
+      color: $headings-color;
+    }
+  }
+  .item-description {
+    font-size: 0.875rem;
+  }
+}
+
+.grid-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 2rem;
+  @media screen and (max-width: 770px) {
+    grid-template-columns: 1fr;
+  }
+  &.wishlist-items {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .notice-card {
+    overflow: hidden;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 25px 0 rgba(black, 0.25);
+    }
+
+    // ratings
+    .item-rating {
+      ul {
+        margin-bottom: 0;
+      }
+      svg,
+      i {
+        height: 1.143rem;
+        width: 1.143rem;
+        font-size: 1.143rem;
+      }
+    }
+
+    // Item name
+    .item-name {
+      margin-bottom: 0;
+      a {
+        font-weight: bolder;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .item-description {
+      font-size: 0.875rem;
+    }
+
+    // buttons style
+    .btn-wishlist,
+    .btn-cart {
+      span {
+        vertical-align: text-top;
+      }
+      i,
+      svg {
+        margin-right: 0.25rem;
+        vertical-align: text-top;
+        &.text-danger {
+          fill: red;
+        }
+      }
+    }
+    // Item Image
+    .item-img {
+      height: 16em;
+      display: flex;
+      align-items: center;
+      img {
+        width: 100%;
+        height: 100%;
+        // margin-bottom: auto;
+        object-fit: cover;
+      }
+    }
+
+    // Item content wrapper
+    .item-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    // Hiding list view items
+    .shipping,
+    .item-company,
+    .item-options .item-price {
+      display: none;
+    }
+
+    .item-options {
+      display: flex;
+      flex-wrap: wrap;
+
+      .btn-email,
+      .btn-phone {
+        flex-grow: 1;
+        border-radius: 0;
+      }
+      .btn-phone {
+        background-color: $cyan;
+      }
+    }
+
+    .item-name {
+      margin-top: 0.75rem;
+    }
+
+    // Item Description
+    .item-description {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-top: 0.2rem;
+    }
+
+    .item-price {
+      font-weight: $font-weight-bolder;
+      color: $cyan;
+    }
+
+    .card-body {
+      padding: 1rem;
+    }
+  }
+}

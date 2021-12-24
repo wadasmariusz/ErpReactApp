@@ -1,0 +1,45 @@
+@import "../pages/events.scss";
+@import "../pages/marketplace.scss";
+@import "../pages/landing.scss";
+
+table.table-borderless {
+  border: none !important;
+}
+
+.clear-margin {
+  margin: 0 !important;
+}
+
+.cursor-help {
+  cursor: help;
+}
+
+.space-button {
+  cursor: pointer;
+  padding: 0.2em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: currentColor;
+
+  &:hover {
+    background-color: #00000008;
+  }
+}
+
+.custom-name {
+  font-weight: 600;
+  color: $cyan;
+}
+
+body {
+  overflow-y: auto !important;
+  background: #fff !important;
+}
+
+.button-semibold {
+  font-weight: 600;
+}
