@@ -10,7 +10,6 @@ import {Button} from "reactstrap";
 import {toast} from "react-toastify";
 import {warehouseShelfSchema} from "views/app/Shelves/common/forms/WarehouseShelfForm";
 import {InputText} from "components/form/text/Text/Input_Text";
-import {SIZE_INPUT_ICON} from "app/config/sizes";
 import {createWarehouseShelf} from "app/crud/app/shelves/createWarehouseShelf";
 
 
@@ -41,7 +40,7 @@ export const FormAddWarehouseShelf = ({
     toast.error("Dodawanie półek do magazynu nie powiodło się.")
   }
 
-  const mutation = useHookFormMutation(methods, createWarehouseShelf, {
+  const mutation = useHookFormMutation(methods, createWarehouseShelf(warehouseId), {
     handleSuccess,
     handleError
   });
@@ -55,9 +54,8 @@ export const FormAddWarehouseShelf = ({
             <div className="col-12 pt-25">
               <div className="col-12 pt-25">
                 <InputText
-                  name="price"
-                  icon={<CurrencyDollar size={SIZE_INPUT_ICON}/>}
-                  label="Cena"
+                  name="name"
+                  label="Nazwa"
                 />
               </div>
             </div>

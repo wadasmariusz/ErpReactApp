@@ -1,5 +1,15 @@
 import React from "react"
-import {Award, CurrencyDollar, House, Person, Speedometer2} from "react-bootstrap-icons";
+import {
+  ArrowDownSquareFill, ArrowLeftSquareFill, ArrowRightSquareFill,
+  ArrowUp,
+  ArrowUpSquareFill,
+  Award,
+  Box,
+  CurrencyDollar,
+  House,
+  Person,
+  Speedometer2
+} from "react-bootstrap-icons";
 import {route} from "app/router/urls/routes";
 
 
@@ -13,14 +23,18 @@ const navigationConfig = (t = () => '') => [
   },
   {
     type: "groupHeader",
-    groupTitle: "Gołębie"
+    groupTitle: "Produkty"
   },
   {
-    id: "pigeon",
-    title: 'Gołębie',
+    id: "product",
+    title: 'Produkty',
     type: "item",
-    icon: <Award size={20}/>,
-    navLink: route['app.pigeons'],
+    icon: <Box size={20}/>,
+    navLink: route['app.products'],
+  },
+  {
+    type: "groupHeader",
+    groupTitle: "Magazyn"
   },
   {
     id: "warehouses",
@@ -30,11 +44,29 @@ const navigationConfig = (t = () => '') => [
     navLink: route['app.warehouses'],
   },
   {
+    id: "warehouseReceipts",
+    title: 'Przyjęcia magazynowe',
+    type: "item",
+    icon: <ArrowRightSquareFill size={20}/>,
+    navLink: route['app.warehouseReceipts'],
+  },
+  {
+    type: "groupHeader",
+    groupTitle: "Stare"
+  },
+  {
     id: "pigeonNotices",
     title: 'Oferty',
     type: "item",
     icon: <CurrencyDollar size={20}/>,
     navLink: route['app.pigeonNotices'],
+  },
+  {
+    id: "pigeon",
+    title: 'Gołębie',
+    type: "item",
+    icon: <Award size={20}/>,
+    navLink: route['app.pigeons'],
   },
   {
     type: "groupHeader",

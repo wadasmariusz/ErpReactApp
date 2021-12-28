@@ -1,59 +1,56 @@
-import React from "react";
+﻿import React from "react";
 import {Link, useParams} from "react-router-dom";
 import {Breadcrumb} from "components/includes/Breadcrumb";
 import {route} from "app/router/urls/routes";
-import {useGetSingleWarehouse} from "app/crud/app/warehouses/getSingle";
+import {useGetSingleWarehouseReceipt} from "app/crud/app/warehouseReceipts/getSingle";
 import {QueryProvider} from "app/context/data/queries/QueryProvider";
 import {EditButton} from "components/button/EditButton";
-import {CardWarehouseDetails} from "./cards/CardWarehouseDetails";
+import {CardWarehouseReceiptDetails} from "./cards/CardWarehouseReceiptDetails";
 import {Pen, Plus, PlusCircle} from "react-bootstrap-icons";
 import {SIZE_INPUT_ICON} from "../../../../app/config/sizes";
-import {CardWarehouseShelf} from "./cards/CardWarehouseShelf";
-import {AddWarehouseShelves} from "./components/modals/AddWarehouseShelves";
+import {CardWarehouseReceiptItemsDataTable} from "./cards/CardWarehouseReceiptItemsDataTable";
+// import {AddWarehouseReceiptShelves} from "./components/modals/AddWarehouseReceiptShelves";
 
-const breadcrumbItems = (name) => [
-  {label: "Lista magazynów", url: route["app.warehouses"]},
-  {label: `Magazyn: ${name ?? ""}`},
+const breadcrumbItems = (id) => [
+  {label: "Lista przyjęć magazynowych", url: route["app.warehouseReceipts"]},
+  {label: `PM-${id ?? ""}`},
 ];
 
-const ViewWarehouse = () => {
-  const {warehouseId} = useParams();
-  const query = useGetSingleWarehouse(warehouseId);
+const ViewWarehouseReceipt = () => {
+  const {warehouseReceiptId} = useParams();
+  const query = useGetSingleWarehouseReceipt(warehouseReceiptId);
 
   return (
     <>
-    <QueryProvider {...query}>
       <Breadcrumb items={breadcrumbItems(query?.data?.name)}>
-        <AddWarehouseShelves/>
-        <EditButton url={route["app.warehouse.edit"](warehouseId)}/>
+        {/*<AddWarehouseReceiptShelves/>*/}
+        <EditButton url={route["app.warehouseReceipt.edit"](warehouseReceiptId)}/>
       </Breadcrumb>
       <div className="container pt-1">
         <div className="row">
           <div className="col-12">
-
+            <QueryProvider {...query}>
               <div className="card">
                 <div className="card-body">
                   <div className="row">
                     <div className='col-12'>
-                      <CardWarehouseDetails/>
+                      <CardWarehouseReceiptDetails/>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <h4 className={"mt-5 mb-2"}>Lista półek</h4>
               <div className="row">
                 <div className="col-12">
-                  <CardWarehouseShelf/>
+                  <CardWarehouseReceiptItemsDataTable/>
                 </div>
               </div>
-
+            </QueryProvider>
           </div>
         </div>
       </div>
-    </QueryProvider>
     </>
   );
 };
 
-export default ViewWarehouse;
+export default ViewWarehouseReceipt;

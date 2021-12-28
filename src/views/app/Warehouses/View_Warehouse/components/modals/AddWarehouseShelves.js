@@ -5,7 +5,7 @@ import {FormAddWarehouseShelf} from "views/app/Warehouses/View_Warehouse/forms/F
 import {PlusCircle} from "react-bootstrap-icons";
 
 
-export const AddWarehouseShelf = ({...props}) => {
+export const AddWarehouseShelves = ({...props}) => {
   const {isOpen, open, close} = useModal();
 
   return (

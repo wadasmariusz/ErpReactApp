@@ -14,7 +14,7 @@ export const InputWarehouse = (props) => {
       disabled={isLoading}
       isLoading={isFetching}
       name="warehouseId"
-      label="Gołębnik"
+      label="Magazyny"
       icon={<House size={SIZE_INPUT_ICON}/>}
       {...props}
     />
