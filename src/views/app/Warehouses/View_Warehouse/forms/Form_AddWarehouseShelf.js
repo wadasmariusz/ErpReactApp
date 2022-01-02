@@ -10,7 +10,10 @@ import {Button} from "reactstrap";
 import {toast} from "react-toastify";
 import {warehouseShelfSchema} from "views/app/Shelves/common/forms/WarehouseShelfForm";
 import {InputText} from "components/form/text/Text/Input_Text";
+import {InputTextarea} from "components/form/text/Textarea/Input_Textarea";
 import {createWarehouseShelf} from "app/crud/app/shelves/createWarehouseShelf";
+import {Pen, Tag} from "react-bootstrap-icons";
+import {SIZE_INPUT_ICON} from "../../../../../app/config/sizes";
 
 
 export const FormAddWarehouseShelf = ({
@@ -33,6 +36,7 @@ export const FormAddWarehouseShelf = ({
 
   const handleSuccess = ({data}) => {
     //redirect to employee
+    refetch();
     closeModal();
   };
 
@@ -52,12 +56,18 @@ export const FormAddWarehouseShelf = ({
           <HookFormError/>
           <div className="row">
             <div className="col-12 pt-25">
-              <div className="col-12 pt-25">
                 <InputText
                   name="name"
+                  icon={<Tag size={SIZE_INPUT_ICON}/>}
                   label="Nazwa"
                 />
-              </div>
+            </div>
+            <div className="col-12 col-lg-12 pt-25">
+              <InputTextarea
+                name="description"
+                icon={<Pen size={SIZE_INPUT_ICON}/>}
+                label="Opis"
+              />
             </div>
             <div className="col-12 d-flex justify-content-end">
               <Button onClick={closeModal} color="secondary">Anuluj</Button>

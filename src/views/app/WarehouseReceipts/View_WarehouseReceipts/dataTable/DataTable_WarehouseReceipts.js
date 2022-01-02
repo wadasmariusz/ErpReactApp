@@ -5,6 +5,8 @@ import { route } from "app/router/urls/routes";
 import { useQueryContext } from "app/context/data/queries/QueryProvider";
 import styled from "styled-components";
 import { truncateText } from "app/utility/truncateText";
+import {mapPigeonStatusToBadge} from "../../../../../components/maps/mapPigeonStatusToBadge";
+import {mapDocumentStatusToBadge} from "../../../../../components/maps/mapDocumentStatusToBadge";
 // import {mapWarehouseReceiptTypeToBadge} from "../../../../../components/maps/mapWarehouseReceiptTypeToBadge";
 
 const headers = [
@@ -28,7 +30,7 @@ export const WarehouseReceiptsDataTable = () => {
         <DataTableItem key={id} path={route["app.warehouseReceipt"](id)}>
           <div>PM-{id}</div>
           <div>{warehouse?.name}</div>
-          <div>{status}</div>
+          <div>{mapDocumentStatusToBadge(status)}</div>
           <div>{itemsCount}</div>
         </DataTableItem>
       ))}

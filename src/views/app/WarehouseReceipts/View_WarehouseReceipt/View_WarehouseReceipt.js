@@ -22,8 +22,7 @@ const ViewWarehouseReceipt = () => {
 
   return (
     <>
-      <Breadcrumb items={breadcrumbItems(query?.data?.name)}>
-        {/*<AddWarehouseReceiptShelves/>*/}
+      <Breadcrumb items={breadcrumbItems(query?.data?.id)}>
         <EditButton url={route["app.warehouseReceipt.edit"](warehouseReceiptId)}/>
       </Breadcrumb>
       <div className="container pt-1">
