@@ -9,6 +9,7 @@ const RoutesPigeons = React.lazy(() => import("views/app/Pigeons/@Routes/Routes_
 const RoutesWarehouses = React.lazy(() => import("views/app/Warehouses/@Routes/Routes_Warehouses"),);
 const RoutesWarehouseReceipts = React.lazy(() => import("views/app/WarehouseReceipts/@Routes/Routes_WarehouseReceipts"),);
 const RoutesProducts = React.lazy(() => import("views/app/Products/@Routes/Routes_Products"),);
+const RoutesProductKinds = React.lazy(() => import("views/app/ProductKinds/@Routes/Routes_ProductKinds"),);
 const RoutesPigeonNotices = React.lazy(() => import("views/app/PigeonNotices/@Routes/Routes_PigeonNotices"),);
 const RoutesMyAccount = React.lazy(() => import("views/app/MyAccount/@Routes/Routes_MyAccount"),);
 
@@ -29,6 +30,10 @@ export const RoutesApp = () => {
       <RootRoute
         path={route["app.products"]}
         component={RoutesProducts}
+      />
+      <RootRoute
+        path={route["app.productKinds"]}
+        component={RoutesProductKinds}
       />
       <RootRoute
         path={route["app.warehouses"]}

@@ -6,7 +6,7 @@ import {
   Award,
   Box,
   CurrencyDollar,
-  House,
+  House, Inboxes,
   Person,
   Speedometer2
 } from "react-bootstrap-icons";
@@ -31,6 +31,13 @@ const navigationConfig = (t = () => '') => [
     type: "item",
     icon: <Box size={20}/>,
     navLink: route['app.products'],
+  },
+  {
+    id: "productKind",
+    title: 'Rodzaje',
+    type: "item",
+    icon: <Inboxes size={20}/>,
+    navLink: route['app.productKinds'],
   },
   {
     type: "groupHeader",
