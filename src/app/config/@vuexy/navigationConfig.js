@@ -1,10 +1,10 @@
 import React from "react"
 import {
-  ArrowDownSquareFill, ArrowLeftSquareFill, ArrowRightSquareFill,
+  ArrowDownSquareFill, ArrowDownUp, ArrowLeftRight, ArrowLeftSquareFill, ArrowRightSquareFill,
   ArrowUp,
   ArrowUpSquareFill,
   Award,
-  Box,
+  Box, BoxArrowInLeft, BoxArrowRight,
   CurrencyDollar,
   House, Inboxes,
   Person,
@@ -54,8 +54,22 @@ const navigationConfig = (t = () => '') => [
     id: "warehouseReceipts",
     title: 'Przyjęcia magazynowe',
     type: "item",
-    icon: <ArrowRightSquareFill size={20}/>,
+    icon: <BoxArrowInLeft size={20}/>,
     navLink: route['app.warehouseReceipts'],
+  },
+  {
+    id: "warehouseReleases",
+    title: 'Wydania magazynowe',
+    type: "item",
+    icon: <BoxArrowRight size={20}/>,
+    navLink: route['app.warehouseReleases'],
+  },
+  {
+    id: "interWarehouseTransfers",
+    title: 'Przesunięcia magazynowe',
+    type: "item",
+    icon: <ArrowLeftRight size={20}/>,
+    navLink: route['app.interWarehouseTransfers'],
   },
   {
     type: "groupHeader",
