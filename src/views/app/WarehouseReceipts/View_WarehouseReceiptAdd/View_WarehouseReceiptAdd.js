@@ -18,7 +18,7 @@ const breadcrumbItems = [
 const ViewWarehouseReceiptAdd = () => {
   const history = useHistory();
   const methods = useForm({
-    defaultValues: warehouseReceiptSchema.default(),
+    defaultValues: {...warehouseReceiptSchema.default(), items: [{productId: "", quantity: "", shelfId: ""}]},
     resolver: yupResolver(warehouseReceiptSchema),
   });
 

@@ -6,8 +6,7 @@ import {useShelvesList} from "app/crud/list/useShelvesList";
 
 // TODO: jak przekazac warehouseId
 export const InputShelf = (props) => {
-
-  const {options, isLoading, isFetching} = useShelvesList();
+  const {options, isLoading, isFetching} = useShelvesList(props.warehouseId);
 
   return (
     <InputSelect

@@ -13,13 +13,16 @@ import CountBy from "underscore/modules/countBy";
 import styled from "styled-components";
 import {InputProduct} from "../../../../../components/form/predefined/select/enum/Input_Product";
 import {InputShelf} from "../../../../../components/form/predefined/select/enum/Input_Shelf";
+import {useFieldArray, useFormContext} from "react-hook-form";
 
 // import { InputSelect } from "components/form/special/Select/Input_Select";
 // import { InputWarehouseReceiptType } from "components/form/predefined/select/enum/Input_WarehouseReceiptType";
 
 export const warehouseReceiptSchema = yup.object().shape({
-  name: yup.string().nullable(),
-  description: yup.string().nullable()
+  warehouseId: yup.string().required(),
+  items: yup.array().of(
+    yup.object().shape({productId: yup.string().required(), quantity: yup.string().required(), shelfId: yup.string().required()})
+  )
 });
 
 const ColoredLine = styled.div`
@@ -31,20 +34,22 @@ const ColoredLine = styled.div`
 export const FormWarehouseReceipt = ({submitText, cancelUrl}) => {
   const [inputList, setInputList] = useState([{productId: "", quantity: "", shelfId: ""}]);
 
-  // handle input change
-  const handleInputChange = (e, index) => {
-    const {name, value} = e.target;
-    const list = [...inputList];
-    list[index][name] = value;
-    setInputList(list);
-  };
+
+  const {control, setValue, watch, register} = useFormContext();
+  const {items, warehouseId} = watch();
+  const {fields, append, remove} = useFieldArray({
+    control,
+    name: "items"
+  });
+
+  const handleAppend = () => {
+    append({productId: "", quantity: "", shelfId: ""});
+  }
 
 // handle click event of the Remove button
-  const handleRemoveClick = index => {
-    const list = [...inputList];
-    list.splice(index, 1);
-    setInputList(list);
-  };
+  const handleRemoveClick = index =>() => {
+    remove(index);
+  }
 
 // handle click event of the Add button
   const handleAddClick = () => {
@@ -60,7 +65,7 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl}) => {
       <div className="col-12 pt-25">
         <h4 className="mt-2">Pozycje:</h4>
       </div>
-      {inputList.map((x, i) => {
+      {fields.map((x, i) => {
         return (
           <div key={i} className="col-12">
             <div className="row">
@@ -69,19 +74,16 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl}) => {
                   <div className="col-12 pt-25">
                     <InputText
                       required
-                      name="quantity"
+                      name={`items[${i}].quantity`}
                       type="text"
-                      value={x.quantity}
                       icon={<Coin size={SIZE_INPUT_ICON}/>}
                       label="Ilość"
-                      onChange={e => handleInputChange(e, i)}
                     />
                   </div>
 
                   <div className="col-12 pt-25">
                     <InputProduct
-                      value={x.productId}
-                      onChange={e => handleInputChange(e, i)}
+                      name={`items[${i}].productId`}
                     />
                   </div>
 
@@ -89,8 +91,8 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl}) => {
                     {/*TODO: jak przekazac warehouseId do pobrania listy półek*/}
                     {/*TODO: onChange nie działa :(*/}
                     <InputShelf
-                      value={x.shelfId}
-                      onChange={e => handleInputChange(e, i)}
+                      name={`items[${i}].shelfId`}
+                      warehouseId={warehouseId}
                     />
                   </div>
 
@@ -102,7 +104,7 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl}) => {
                 </div>
               </div>
               <div className="col-1 my-auto">
-                {inputList.length !== 1 &&
+                {fields.length !== 1 &&
                   <Button onClick={() => handleRemoveClick(i)} color="danger">
                     <TrashFill className="mr-25" size={SIZE_INPUT_ICON_SM}/>
                   </Button>}
@@ -110,8 +112,8 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl}) => {
             </div>
             <div className="row">
               <div className="col-12">
-                {inputList.length - 1 === i &&
-                  <Button onClick={handleAddClick} color="primary">
+                {fields.length - 1 === i &&
+                  <Button onClick={handleAppend} color="primary">
                     Dodaj pozycje
                   </Button>
                 }
