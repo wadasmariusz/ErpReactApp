@@ -42,6 +42,7 @@ export const FormEditWarehouseReceipt = () => {
         <form onSubmit={mutation.mutate}>
           <HookFormError/>
           <FormWarehouseReceipt
+            isUpdate={true}
             submitText="Zapisz"
             cancelUrl={route["app.warehouseReceipt"](warehouseReceiptId)}
           />

@@ -24,7 +24,7 @@ const ViewWarehouseReceiptEdit = () => {
           <div className="col-12 col-lg-10 offset-lg-1">
             <div className="card">
               <div className="card-header">
-                <h4 className="card-title">Edytuj magazyn</h4>
+                <h4 className="card-title">Edytuj PM</h4>
               </div>
               <div className="card-body">
                 <QueryProvider {...query}>

@@ -4,7 +4,6 @@ import {Bookshelf, Box, House} from "react-bootstrap-icons";
 import {SIZE_INPUT_ICON} from "app/config/sizes";
 import {useShelvesList} from "app/crud/list/useShelvesList";
 
-// TODO: jak przekazac warehouseId
 export const InputShelf = (props) => {
   const {options, isLoading, isFetching} = useShelvesList(props.warehouseId);
 

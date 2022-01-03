@@ -41,7 +41,15 @@ const ViewWarehouseReceipt = () => {
 
               <div className="row">
                 <div className="col-12">
-                  <CardWarehouseReceiptItemsDataTable/>
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="row">
+                        <div className='col-12'>
+                          <CardWarehouseReceiptItemsDataTable/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </QueryProvider>

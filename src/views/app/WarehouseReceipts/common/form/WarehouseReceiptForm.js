@@ -31,7 +31,7 @@ const ColoredLine = styled.div`
 `;
 
 
-export const FormWarehouseReceipt = ({submitText, cancelUrl}) => {
+export const FormWarehouseReceipt = ({submitText, cancelUrl, isUpdate}) => {
   const [inputList, setInputList] = useState([{productId: "", quantity: "", shelfId: ""}]);
 
 
@@ -59,7 +59,9 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl}) => {
   return (
     <div className="row">
       <div className="col-12 pt-25">
-        <InputWarehouse/>
+        <InputWarehouse
+          disabled={isUpdate}
+        />
       </div>
 
       <div className="col-12 pt-25">
@@ -88,8 +90,6 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl}) => {
                   </div>
 
                   <div className="col-12 pt-25">
-                    {/*TODO: jak przekazac warehouseId do pobrania listy półek*/}
-                    {/*TODO: onChange nie działa :(*/}
                     <InputShelf
                       name={`items[${i}].shelfId`}
                       warehouseId={warehouseId}

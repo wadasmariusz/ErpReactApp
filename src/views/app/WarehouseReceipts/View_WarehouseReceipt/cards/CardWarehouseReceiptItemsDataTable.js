@@ -6,22 +6,24 @@ import {useQueryContext} from "app/context/data/queries/QueryProvider";
 
 const headers = [
   ["Id", 1],
-  ["Produkt", 4],
+  ["Produkt", 5],
   ["Ilość", 1],
-  ["Akcja", 2]
+  ["Półka", 1],
 ];
 
 export const CardWarehouseReceiptItemsDataTable = () => {
   const { data } = useQueryContext();
+  console.log(data);
 
   return (
     <DataTable header={headers}>
-      {!!data?.length && !!data?.items.length &&
+      {data !=null && !!data?.items.length &&
         data.items?.map(
           ({
              id,
              product,
-             quantity
+             quantity,
+             shelf
            }) => {
             return (<DataTableItem
               className="data-table-item"
@@ -31,6 +33,7 @@ export const CardWarehouseReceiptItemsDataTable = () => {
               <div className="text-uppercase">{id}</div>
               <div>{product.name}</div>
               <div className="text-uppercase">{quantity}</div>
+              <div>{shelf.name}</div>
             </DataTableItem>)
           }
         )}
