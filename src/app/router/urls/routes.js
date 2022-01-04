@@ -7,6 +7,7 @@ import {warehouseReceiptsRoutes} from "app/router/urls/app/warehouseReceipts/war
 import {interWarehouseTransfersRoutes} from "app/router/urls/app/interWarehouseTransfers/interWarehouseTransfers";
 import {warehouseReleasesRoutes} from "app/router/urls/app/warehouseReleases/warehouseReleases";
 import {productsRoutes} from "app/router/urls/app/products/products";
+import {usersRoutes} from "app/router/urls/app/users/users";
 import {dashboardRoutes} from "app/router/urls/app/dashboard/dashboard";
 import {myAccountRoutes} from "app/router/urls/app/myAccount/myCompany";
 import {pigeonNoticesRoutes} from "app/router/urls/app/pigeonNotices/pigeonNotices";
@@ -20,6 +21,7 @@ export const route = {
   ...dashboardRoutes,
   ...pigeonsRoutes,
   ...productsRoutes,
+  ...usersRoutes,
   ...productKindsRoutes,
   ...warehousesRoutes,
   ...warehouseReceiptsRoutes,

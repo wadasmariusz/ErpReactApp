@@ -9,10 +9,13 @@ import {CardInterWarehouseTransferDetails} from "./cards/CardInterWarehouseTrans
 import {Pen, Plus, PlusCircle} from "react-bootstrap-icons";
 import {SIZE_INPUT_ICON} from "../../../../app/config/sizes";
 import {CardInterWarehouseTransferItemsDataTable} from "./cards/CardInterWarehouseTransferItemsDataTable";
+import {ConfirmInterWarehouseTransfer} from "./components/modals/ConfirmInterWarehouseTransfer";
+import {CanceledInterWarehouseTransfer} from "./components/modals/CanceledInterWarehouseTransfer";
+
 // import {AddInterWarehouseTransferShelves} from "./components/modals/AddInterWarehouseTransferShelves";
 
 const breadcrumbItems = (id) => [
-  {label: "Lista przesunięć magazynowych", url: route["app.interWarehouseTransfers"]},
+  {label: "Lista przyjęć magazynowych", url: route["app.interWarehouseTransfers"]},
   {label: `PM-${id ?? ""}`},
 ];
 
@@ -22,13 +25,15 @@ const ViewInterWarehouseTransfer = () => {
 
   return (
     <>
-      <Breadcrumb items={breadcrumbItems(query?.data?.id)}>
-        <EditButton url={route["app.interWarehouseTransfer.edit"](interWarehouseTransferId)}/>
-      </Breadcrumb>
-      <div className="container pt-1">
-        <div className="row">
-          <div className="col-12">
-            <QueryProvider {...query}>
+      <QueryProvider {...query}>
+        <Breadcrumb items={breadcrumbItems(query?.data?.id)}>
+          {query?.data?.status === 1 && <CanceledInterWarehouseTransfer/> }
+          {query?.data?.status === 1 && query?.data?.items?.length > 0 && <ConfirmInterWarehouseTransfer/> }
+          {query?.data?.status === 1 && <EditButton url={route["app.interWarehouseTransfer.edit"](interWarehouseTransferId)}/> }
+        </Breadcrumb>
+        <div className="container pt-1">
+          <div className="row">
+            <div className="col-12">
               <div className="card">
                 <div className="card-body">
                   <div className="row">
@@ -41,13 +46,21 @@ const ViewInterWarehouseTransfer = () => {
 
               <div className="row">
                 <div className="col-12">
-                  <CardInterWarehouseTransferItemsDataTable/>
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="row">
+                        <div className='col-12'>
+                          <CardInterWarehouseTransferItemsDataTable/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </QueryProvider>
+            </div>
           </div>
         </div>
-      </div>
+      </QueryProvider>
     </>
   );
 };

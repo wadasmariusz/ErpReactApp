@@ -6,7 +6,7 @@ import {
   Award,
   Box, BoxArrowInLeft, BoxArrowRight,
   CurrencyDollar,
-  House, Inboxes,
+  House, Inboxes, PeopleFill,
   Person,
   Speedometer2
 } from "react-bootstrap-icons";
@@ -73,22 +73,30 @@ const navigationConfig = (t = () => '') => [
   },
   {
     type: "groupHeader",
-    groupTitle: "Stare"
+    groupTitle: "Dane systemowe"
   },
   {
-    id: "pigeonNotices",
-    title: 'Oferty',
+    id: "users",
+    title: 'Użytkownicy',
     type: "item",
-    icon: <CurrencyDollar size={20}/>,
-    navLink: route['app.pigeonNotices'],
+    icon: <PeopleFill size={20}/>,
+    navLink: route['app.users'],
   },
-  {
-    id: "pigeon",
-    title: 'Gołębie',
-    type: "item",
-    icon: <Award size={20}/>,
-    navLink: route['app.pigeons'],
-  },
+
+  // {
+  //   id: "pigeonNotices",
+  //   title: 'Oferty',
+  //   type: "item",
+  //   icon: <CurrencyDollar size={20}/>,
+  //   navLink: route['app.pigeonNotices'],
+  // },
+  // {
+  //   id: "pigeon",
+  //   title: 'Gołębie',
+  //   type: "item",
+  //   icon: <Award size={20}/>,
+  //   navLink: route['app.pigeons'],
+  // },
   {
     type: "groupHeader",
     groupTitle: "Konto"
