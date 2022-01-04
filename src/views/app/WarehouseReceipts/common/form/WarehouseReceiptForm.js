@@ -43,7 +43,11 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl, isUpdate}) => {
   });
 
   const handleAppend = () => {
-    append({productId: "", quantity: "", shelfId: ""});
+    append({
+      productId: "",
+      quantity: "",
+      shelfId: ""
+    });
   }
 
 // handle click event of the Remove button
@@ -51,10 +55,6 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl, isUpdate}) => {
     remove(index);
   }
 
-// handle click event of the Add button
-  const handleAddClick = () => {
-    setInputList([...inputList, { productId: "", quantity: "", shelfId: ""}]);
-  };
 
   return (
     <div className="row">
@@ -105,7 +105,7 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl, isUpdate}) => {
               </div>
               <div className="col-1 my-auto">
                 {fields.length !== 1 &&
-                  <Button onClick={() => handleRemoveClick(i)} color="danger">
+                  <Button onClick={handleRemoveClick(i)} color="danger">
                     <TrashFill className="mr-25" size={SIZE_INPUT_ICON_SM}/>
                   </Button>}
               </div>
