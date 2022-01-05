@@ -15,9 +15,6 @@ import {InputProduct} from "../../../../../components/form/predefined/select/enu
 import {InputShelf} from "../../../../../components/form/predefined/select/enum/Input_Shelf";
 import {useFieldArray, useFormContext} from "react-hook-form";
 
-// import { InputSelect } from "components/form/special/Select/Input_Select";
-// import { InputWarehouseReceiptType } from "components/form/predefined/select/enum/Input_WarehouseReceiptType";
-
 export const warehouseReceiptSchema = yup.object().shape({
   warehouseId: yup.string().required(),
   items: yup.array().of(
@@ -51,7 +48,7 @@ export const FormWarehouseReceipt = ({submitText, cancelUrl, isUpdate}) => {
   }
 
 // handle click event of the Remove button
-  const handleRemoveClick = index =>() => {
+  const handleRemoveClick = index => () => {
     remove(index);
   }
 

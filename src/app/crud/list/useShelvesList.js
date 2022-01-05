@@ -19,6 +19,4 @@ const useGetShelvesList = (warehouseId) =>
     isArray: true,
   });
 
-
-//TODO: jak przekazac warehouseId
 export const useShelvesList = (warehouseId) => useOptions(useGetShelvesList, mapShelfToOption, [warehouseId]);

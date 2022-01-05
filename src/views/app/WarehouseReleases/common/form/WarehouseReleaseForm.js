@@ -14,9 +14,12 @@ import styled from "styled-components";
 import {InputProduct} from "../../../../../components/form/predefined/select/enum/Input_Product";
 import {InputShelf} from "../../../../../components/form/predefined/select/enum/Input_Shelf";
 import {useFieldArray, useFormContext} from "react-hook-form";
-
-// import { InputSelect } from "components/form/special/Select/Input_Select";
-// import { InputWarehouseReleaseType } from "components/form/predefined/select/enum/Input_WarehouseReleaseType";
+import {
+  InputWarehouseReleaseProduct
+} from "../../../../../components/form/predefined/select/enum/Input_WarehouseReleaseProduct";
+import {
+  InputWarehouseProductShelf
+} from "../../../../../components/form/predefined/select/enum/InputWarehouseProductShelf";
 
 export const warehouseReleaseSchema = yup.object().shape({
   warehouseId: yup.string().required(),
@@ -30,10 +33,8 @@ const ColoredLine = styled.div`
   width: 100%;
 `;
 
-
 export const FormWarehouseRelease = ({submitText, cancelUrl}) => {
   const [inputList, setInputList] = useState([{productId: "", quantity: "", shelfId: ""}]);
-
 
   const {control, setValue, watch, register} = useFormContext();
   const {items, warehouseId} = watch();
@@ -43,18 +44,17 @@ export const FormWarehouseRelease = ({submitText, cancelUrl}) => {
   });
 
   const handleAppend = () => {
-    append({productId: "", quantity: "", shelfId: ""});
+    append({
+      productId: "",
+      quantity: "",
+      shelfId: ""
+    });
   }
 
 // handle click event of the Remove button
-  const handleRemoveClick = index =>() => {
+  const handleRemoveClick = index => () => {
     remove(index);
   }
-
-// handle click event of the Add button
-  const handleAddClick = () => {
-    setInputList([...inputList, { productId: "", quantity: "", shelfId: ""}]);
-  };
 
   return (
     <div className="row">
@@ -82,17 +82,17 @@ export const FormWarehouseRelease = ({submitText, cancelUrl}) => {
                   </div>
 
                   <div className="col-12 pt-25">
-                    <InputProduct
+                    <InputWarehouseReleaseProduct
                       name={`items[${i}].productId`}
+                      warehouseId={warehouseId}
                     />
                   </div>
 
                   <div className="col-12 pt-25">
-                    {/*TODO: jak przekazac warehouseId do pobrania listy półek*/}
-                    {/*TODO: onChange nie działa :(*/}
-                    <InputShelf
+                    <InputWarehouseProductShelf
                       name={`items[${i}].shelfId`}
                       warehouseId={warehouseId}
+                      productId={items[i].productId}
                     />
                   </div>
 
@@ -105,7 +105,7 @@ export const FormWarehouseRelease = ({submitText, cancelUrl}) => {
               </div>
               <div className="col-1 my-auto">
                 {fields.length !== 1 &&
-                  <Button onClick={() => handleRemoveClick(i)} color="danger">
+                  <Button onClick={handleRemoveClick(i)} color="danger">
                     <TrashFill className="mr-25" size={SIZE_INPUT_ICON_SM}/>
                   </Button>}
               </div>

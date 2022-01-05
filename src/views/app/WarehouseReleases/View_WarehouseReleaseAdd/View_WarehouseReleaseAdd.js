@@ -12,7 +12,7 @@ import {HookFormError} from "components/form/helpers/HookFormError";
 
 const breadcrumbItems = [
   { label: "Lista wydań magazynowych", url: route["app.warehouseReleases"] },
-  { label: "Dodaj PM" },
+  { label: "Dodaj WM" },
 ];
 
 const ViewWarehouseReleaseAdd = () => {
@@ -40,7 +40,7 @@ const ViewWarehouseReleaseAdd = () => {
           <div className="col-12 col-lg-10 offset-lg-1">
             <div className="card">
               <div className="card-header">
-                <h4>Dodaj przyjęcie magazynowe</h4>
+                <h4>Dodaj wydanie magazynowe</h4>
               </div>
               <div className="card-body">
                 <FormProvider {...methods}>
