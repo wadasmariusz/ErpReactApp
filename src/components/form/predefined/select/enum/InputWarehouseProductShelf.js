@@ -16,6 +16,7 @@ export const InputWarehouseProductShelf = (props) => {
       name="shelfId"
       label="Półka"
       icon={<Box size={SIZE_INPUT_ICON}/>}
+      defaultValue = { options?.length === 1 && options[0]?.value }
       {...props}
     />
   );
