@@ -2,7 +2,7 @@
 import {Link} from "react-router-dom"
 import {route} from "app/router/urls/routes";
 import {useQueryContext} from "../../../../../app/context/data/queries/QueryProvider";
-import {PlusCircle} from "react-bootstrap-icons";
+import {PlusCircle, Dash} from "react-bootstrap-icons";
 import {SIZE_INPUT_ICON, SIZE_INPUT_ICON_SM} from "../../../../../app/config/sizes";
 import {CardWarehouseShelfProductsDataTable} from "./CardWarehouseShelfProductsDataTable";
 
@@ -20,12 +20,7 @@ const ShelfCard = ({shelf}) => {
           >
           <h4 className="mb-0">{name}</h4>
           </Link>
-          <Link
-            // to={route["app.warehouse.edit"](warehouseId)}
-            className="btn btn-success btn-sm ml-2">
-            <PlusCircle className="mr-25" size={SIZE_INPUT_ICON_SM}/>
-            Dodaj PM
-          </Link>
+
         </div>
       </div>
       <div className="card-body">

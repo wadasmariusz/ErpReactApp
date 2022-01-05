@@ -8,8 +8,8 @@ import { truncateText } from "app/utility/truncateText";
 import {mapWarehouseTypeToBadge} from "../../../../../components/maps/mapWarehouseTypeToBadge";
 
 const headers = [
-  ["Nazwa", 4],
-  ["Opis", 3],
+  ["Nazwa", 3],
+  // ["Opis", 3],
   ["Ilość półek", 3]
 ];
 
@@ -23,10 +23,10 @@ export const WarehousesDataTable = () => {
 
   return (
     <DataTable header={headers}>
-      {!!data?.length && data?.map(({ id, name, description, shelfCount }) => (
+      {!!data?.length && data?.map(({ id, name, shelfCount }) => (
         <DataTableItem key={id} path={route["app.warehouse"](id)}>
           <div>{name}</div>
-          <div>{truncateText(description, 60)}</div>
+          {/*<div>{truncateText(description, 60)}</div>*/}
           <div>{shelfCount}</div>
         </DataTableItem>
       ))}

@@ -29,7 +29,7 @@ export const CardWarehouseReceiptDetails = () => {
       <CardBody>
         <BigLine>Magazyn: <b>{data?.warehouse?.name}</b></BigLine>
         <BigLine>Status: <b>{mapDocumentStatusToBadge(data?.status)}</b></BigLine>
-        <BigLine>Data: : <b>{dayjs(data?.createdAt).format("DD-MM-YYYY HH:mm")}</b></BigLine>
+        <BigLine>Utworzono: <b>{dayjs(data?.createdAt).format("DD-MM-YYYY HH:mm")}</b></BigLine>
         <BigLine>Utworzono przez: <b>{data?.createdByUser?.firstName} {data?.createdByUser?.lastName}</b></BigLine>
       </CardBody>
     </Card>

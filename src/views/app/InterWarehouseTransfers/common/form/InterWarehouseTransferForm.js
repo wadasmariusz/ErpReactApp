@@ -8,20 +8,31 @@ import {Button} from "reactstrap";
 import {Link} from "react-router-dom";
 import {InputDatePicker} from "components/form/special/Datepicker/Input_Datepicker";
 import {InputTextarea} from "components/form/text/Textarea/Input_Textarea";
-import {InputWarehouse} from "../../../../../components/form/predefined/select/enum/Input_Warehouse";
+import {InputSourceWarehouse} from "../../../../../components/form/predefined/select/enum/Input_SourceWarehouse";
+import {InputDestinationWarehouse} from "../../../../../components/form/predefined/select/enum/Input_DestinationWarehouse";
 import CountBy from "underscore/modules/countBy";
 import styled from "styled-components";
 import {InputProduct} from "../../../../../components/form/predefined/select/enum/Input_Product";
 import {InputShelf} from "../../../../../components/form/predefined/select/enum/Input_Shelf";
 import {useFieldArray, useFormContext} from "react-hook-form";
+import {
+  InputWarehouseReleaseProduct
+} from "../../../../../components/form/predefined/select/enum/Input_WarehouseReleaseProduct";
+import {
+  InputWarehouseProductShelf
+} from "../../../../../components/form/predefined/select/enum/InputWarehouseProductShelf";
+import {InputDestinationShelf} from "../../../../../components/form/predefined/select/enum/Input_DestinationShelf";
+import {InputSourceShelf} from "../../../../../components/form/predefined/select/enum/Input_SourceShelf";
 
 // import { InputSelect } from "components/form/special/Select/Input_Select";
 // import { InputInterWarehouseTransferType } from "components/form/predefined/select/enum/Input_InterWarehouseTransferType";
 
 export const interWarehouseTransferSchema = yup.object().shape({
-  warehouseId: yup.string().required(),
+  sourceWarehouseId: yup.string().required(),
+  destinationWarehouseId: yup.string().required(),
   items: yup.array().of(
-    yup.object().shape({productId: yup.string().required(), quantity: yup.string().required(), shelfId: yup.string().required()})
+    yup.object().shape({productId: yup.string().required(), quantity: yup.string().required(),
+      sourceShelfId: yup.string().required(), destinationShelfId: yup.string().required()})
   )
 });
 
@@ -32,18 +43,18 @@ const ColoredLine = styled.div`
 
 
 export const FormInterWarehouseTransfer = ({submitText, cancelUrl}) => {
-  const [inputList, setInputList] = useState([{productId: "", quantity: "", shelfId: ""}]);
+  const [inputList, setInputList] = useState([{productId: "", quantity: "", sourceShelfId: "", destinationShelfId: ""}]);
 
 
   const {control, setValue, watch, register} = useFormContext();
-  const {items, warehouseId} = watch();
+  const {items, sourceWarehouseId, destinationWarehouseId} = watch();
   const {fields, append, remove} = useFieldArray({
     control,
     name: "items"
   });
 
   const handleAppend = () => {
-    append({productId: "", quantity: "", shelfId: ""});
+    append({productId: "", quantity: "",  sourceShelfId: "", destinationShelfId: ""});
   }
 
 // handle click event of the Remove button
@@ -53,13 +64,16 @@ export const FormInterWarehouseTransfer = ({submitText, cancelUrl}) => {
 
 // handle click event of the Add button
   const handleAddClick = () => {
-    setInputList([...inputList, { productId: "", quantity: "", shelfId: ""}]);
+    setInputList([...inputList, { productId: "", quantity: "", sourceShelfId: "", destinationShelfId: ""}]);
   };
 
   return (
     <div className="row">
       <div className="col-12 pt-25">
-        <InputWarehouse/>
+        <InputSourceWarehouse/>
+      </div>
+      <div className="col-12 pt-25">
+        <InputDestinationWarehouse/>
       </div>
 
       <div className="col-12 pt-25">
@@ -82,17 +96,24 @@ export const FormInterWarehouseTransfer = ({submitText, cancelUrl}) => {
                   </div>
 
                   <div className="col-12 pt-25">
-                    <InputProduct
+                    <InputWarehouseReleaseProduct
                       name={`items[${i}].productId`}
+                      warehouseId={sourceWarehouseId}
                     />
                   </div>
 
                   <div className="col-12 pt-25">
-                    {/*TODO: jak przekazac warehouseId do pobrania listy półek*/}
-                    {/*TODO: onChange nie działa :(*/}
-                    <InputShelf
-                      name={`items[${i}].shelfId`}
-                      warehouseId={warehouseId}
+                    <InputSourceShelf
+                      name={`items[${i}].sourceShelfId`}
+                      sourceWarehouseId={sourceWarehouseId}
+                      productId={items[i].productId}
+                    />
+                  </div>
+
+                  <div className="col-12 pt-25">
+                    <InputDestinationShelf
+                      name={`items[${i}].destinationShelfId`}
+                      destinationWarehouseId={destinationWarehouseId}
                     />
                   </div>
 
@@ -105,7 +126,7 @@ export const FormInterWarehouseTransfer = ({submitText, cancelUrl}) => {
               </div>
               <div className="col-1 my-auto">
                 {fields.length !== 1 &&
-                  <Button onClick={() => handleRemoveClick(i)} color="danger">
+                  <Button onClick={handleRemoveClick(i)} color="danger">
                     <TrashFill className="mr-25" size={SIZE_INPUT_ICON_SM}/>
                   </Button>}
               </div>

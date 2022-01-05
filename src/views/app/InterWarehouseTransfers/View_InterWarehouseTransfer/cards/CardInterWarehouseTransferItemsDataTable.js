@@ -8,8 +8,8 @@ const headers = [
   ["Id", 1],
   ["Produkt", 4],
   ["Ilość", 1],
-  ["Z pólki", 2],
-  ["Na pólkę", 2]
+  ["Z półki", 2],
+  ["Na półkę", 2]
 ];
 
 export const CardInterWarehouseTransferItemsDataTable = () => {

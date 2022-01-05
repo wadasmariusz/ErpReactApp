@@ -11,7 +11,9 @@ export const CardProductDetails = () => {
         <CardTitle tag={"h4"}>{data?.name}</CardTitle>
       </CardHeader>
       <CardBody>
-        <div>{data?.description}</div>
+        <div>Kod: {data?.code}</div>
+        <div>Opis: {data?.description}</div>
+
       </CardBody>
     </Card>
   );

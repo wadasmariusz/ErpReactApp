@@ -11,7 +11,7 @@ export const CanceledInterWarehouseTransfer = ({...props}) => {
   return (
     <>
       <div className="d-flex" {...props}>
-        <label onClick={open} className="btn btn-success d-block flex-grow-1 mr-50">
+        <label onClick={open} className="btn btn-danger d-block flex-grow-1 mr-50">
           <XCircleFill/> Anuluj
         </label>
       </div>

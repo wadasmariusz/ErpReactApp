@@ -23,7 +23,7 @@ const ViewProducts = () => {
         <QueryProvider {...query} withDefaultPagination>
           <div className="card p-1">
             <QueryHasNoResults>
-              <NoResultsWithAddBtn text="Nie znaleziono żadnych magazynów"/>
+              <NoResultsWithAddBtn text="Nie znaleziono żadnych produktów"/>
             </QueryHasNoResults>
             <QueryHasResults>
               <ProductsDataTable/>

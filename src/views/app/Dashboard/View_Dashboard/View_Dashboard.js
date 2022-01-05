@@ -27,18 +27,19 @@ const ViewDashboard = () => {
             <Row>
               <Col xs={12} lg={6} className='d-flex flex-column align-items-center'>
                 <h4 className='text-center'>
-                  Ilość Gołębi: {data?.totalPigeonsCount}
+                  {/*Ilość Gołębi: {data?.totalPigeonsCount}*/}
+
                 </h4>
                   <PigeonGenderStats
-                    pigeonGenderStats={data?.pigeonGenderStats}
+                    // pigeonGenderStats={data?.pigeonGenderStats}
                   />
               </Col>
               <Col xs={12} lg={6} className='d-flex flex-column align-items-center'>
                 <h4 className='text-center'>
-                  Ilość Gołębników: {data?.totalDovecotesCount}
+                  {/*Ilość Gołębników: {data?.totalDovecotesCount}*/}
                 </h4>
                 <DovecoteTypeStats
-                  dovecoteStats={data?.dovecoteStats}
+                  // dovecoteStats={data?.dovecoteStats}
                 />
               </Col>
             </Row>
