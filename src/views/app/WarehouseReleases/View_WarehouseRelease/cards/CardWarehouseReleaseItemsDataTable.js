@@ -8,20 +8,23 @@ const headers = [
   ["Id", 1],
   ["Produkt", 4],
   ["Ilość", 1],
-  ["Akcja", 2]
+  ["Półka", 1]
 ];
 
 export const CardWarehouseReleaseItemsDataTable = () => {
   const { data } = useQueryContext();
+  console.log(data);
 
   return (
     <DataTable header={headers}>
-      {!!data?.length && !!data?.items.length &&
+      {data !=null && !!data?.items.length &&
+      // {!!data?.length && !!data?.items.length &&
         data.items?.map(
           ({
              id,
              product,
-             quantity
+             quantity,
+             shelf
            }) => {
             return (<DataTableItem
               className="data-table-item"
@@ -31,6 +34,7 @@ export const CardWarehouseReleaseItemsDataTable = () => {
               <div className="text-uppercase">{id}</div>
               <div>{product.name}</div>
               <div className="text-uppercase">{quantity}</div>
+              <div>{shelf.name}</div>
             </DataTableItem>)
           }
         )}

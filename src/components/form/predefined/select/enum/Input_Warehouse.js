@@ -18,5 +18,6 @@ export const InputWarehouse = (props) => {
       icon={<House size={SIZE_INPUT_ICON}/>}
       {...props}
     />
+
   );
 };

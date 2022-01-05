@@ -24,12 +24,12 @@ export const CardWarehouseReleaseDetails = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle tag={"h4"}>PM-{data?.id}</CardTitle>
+        <CardTitle tag={"h4"}>WM-{data?.id}</CardTitle>
       </CardHeader>
       <CardBody>
         <BigLine>Magazyn: <b>{data?.warehouse?.name}</b></BigLine>
         <BigLine>Status: <b>{mapDocumentStatusToBadge(data?.status)}</b></BigLine>
-        <BigLine>Data: : <b>{dayjs(data?.createdAt).format("DD-MM-YYYY HH:mm")}</b></BigLine>
+        <BigLine>Utworzono: : <b>{dayjs(data?.createdAt).format("DD-MM-YYYY HH:mm")}</b></BigLine>
         <BigLine>Utworzono przez: <b>{data?.createdByUser?.firstName} {data?.createdByUser?.lastName}</b></BigLine>
       </CardBody>
     </Card>

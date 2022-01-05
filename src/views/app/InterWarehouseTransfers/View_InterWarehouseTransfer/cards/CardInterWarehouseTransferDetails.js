@@ -3,6 +3,7 @@ import {useQueryContext} from "app/context/data/queries/QueryProvider";
 import {Card, CardBody, CardHeader, CardTitle} from "reactstrap";
 import styled from "styled-components";
 import {mapDocumentStatusToBadge} from "components/maps/mapDocumentStatusToBadge";
+import dayjs from "dayjs";
 
 const Line = styled.div`
   margin-bottom: 0.5rem;
@@ -26,7 +27,9 @@ export const CardInterWarehouseTransferDetails = () => {
         <CardTitle tag={"h4"}>PM-{data?.id}</CardTitle>
       </CardHeader>
       <CardBody>
-        <BigLine>Magazyn: <b>{data?.warehouse?.name}</b></BigLine>
+        <BigLine>Magazyn zródłowy: <b>{data?.sourceWarehouse?.name}</b></BigLine>
+        <BigLine>Magazyn docelowy: <b>{data?.destinationWarehouse?.name}</b></BigLine>
+        <BigLine>Utworzono: <b>{dayjs(data?.createdAt).format("DD-MM-YYYY HH:mm")}</b></BigLine>
         <BigLine>Status: <b>{mapDocumentStatusToBadge(data?.status)}</b></BigLine>
         <BigLine>Utworzono przez: <b>{data?.createdByUser?.firstName} {data?.createdByUser?.lastName}</b></BigLine>
       </CardBody>

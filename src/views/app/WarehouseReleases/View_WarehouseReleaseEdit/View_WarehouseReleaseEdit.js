@@ -8,7 +8,7 @@ import {FormEditWarehouseRelease} from "views/app/WarehouseReleases/View_Warehou
 
 const breadcrumbItems = [
   {label: 'Lista wydań magazynowych', url: route['app.warehouseReleases']},
-  {label: 'Edycja PM'}
+  {label: 'Edycja WM'}
 ];
 
 const ViewWarehouseReleaseEdit = () => {

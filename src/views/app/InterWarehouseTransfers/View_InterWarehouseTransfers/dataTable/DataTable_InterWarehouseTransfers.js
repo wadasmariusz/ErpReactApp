@@ -11,7 +11,8 @@ import {mapDocumentStatusToBadge} from "../../../../../components/maps/mapDocume
 
 const headers = [
   ["Nr", 3],
-  ["Magazyn", 4],
+  ["Z magazynu", 4],
+  ["Do magazynu", 4],
   ["Status", 3],
   ["Ilość pozycji", 3]
 ];
@@ -26,10 +27,11 @@ export const InterWarehouseTransfersDataTable = () => {
 
   return (
     <DataTable header={headers}>
-      {!!data?.length && data?.map(({ id, warehouse, status, itemsCount }) => (
+      {!!data?.length && data?.map(({ id,sourceWarehouse,destinationWarehouse, status, itemsCount }) => (
         <DataTableItem key={id} path={route["app.interWarehouseTransfer"](id)}>
           <div>PM-{id}</div>
-          <div>{warehouse?.name}</div>
+          <div>{sourceWarehouse?.name}</div>
+          <div>{destinationWarehouse?.name}</div>
           <div>{mapDocumentStatusToBadge(status)}</div>
           <div>{itemsCount}</div>
         </DataTableItem>

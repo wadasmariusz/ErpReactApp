@@ -16,7 +16,7 @@ import {CanceledWarehouseRelease} from "./components/modals/CanceledWarehouseRel
 
 const breadcrumbItems = (id) => [
   {label: "Lista wydań magazynowych", url: route["app.warehouseReleases"]},
-  {label: `PM-${id ?? ""}`},
+  {label: `WM-${id ?? ""}`},
 ];
 
 const ViewWarehouseRelease = () => {

@@ -8,7 +8,8 @@ const headers = [
   ["Id", 1],
   ["Produkt", 4],
   ["Ilość", 1],
-  ["Akcja", 2]
+  ["Z pólki", 2],
+  ["Na pólkę", 2]
 ];
 
 export const CardInterWarehouseTransferItemsDataTable = () => {
@@ -16,12 +17,14 @@ export const CardInterWarehouseTransferItemsDataTable = () => {
 
   return (
     <DataTable header={headers}>
-      {!!data?.length && !!data?.items.length &&
+      {data !=null && !!data?.items.length &&
         data.items?.map(
           ({
              id,
              product,
-             quantity
+             quantity,
+             sourceShelf,
+             destinationShelf
            }) => {
             return (<DataTableItem
               className="data-table-item"
@@ -31,6 +34,9 @@ export const CardInterWarehouseTransferItemsDataTable = () => {
               <div className="text-uppercase">{id}</div>
               <div>{product.name}</div>
               <div className="text-uppercase">{quantity}</div>
+              <div>{sourceShelf?.name}</div>
+              <div>{destinationShelf?.name}</div>
+
             </DataTableItem>)
           }
         )}

@@ -28,7 +28,7 @@ export const WarehouseReleasesDataTable = () => {
     <DataTable header={headers}>
       {!!data?.length && data?.map(({ id, warehouse, status, itemsCount }) => (
         <DataTableItem key={id} path={route["app.warehouseRelease"](id)}>
-          <div>PM-{id}</div>
+          <div>WM-{id}</div>
           <div>{warehouse?.name}</div>
           <div>{mapDocumentStatusToBadge(status)}</div>
           <div>{itemsCount}</div>
