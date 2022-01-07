@@ -10,7 +10,7 @@ import {useGetProductCategories} from "app/crud/app/productCategories/getList";
 import {ProductCategoriesDataTable} from "./dataTable/DataTable_ProductCategories";
 import {AddButton} from "components/button/AddButton";
 
-const breadcrumbItems = [{label: "Lista rodzajów produktów"}];
+const breadcrumbItems = [{label: "Lista kategori produktów"}];
 
 const ViewProductCategories = () => {
   const query = useGetProductCategories();
@@ -23,7 +23,7 @@ const ViewProductCategories = () => {
         <QueryProvider {...query} withDefaultPagination>
           <div className="card p-1">
             <QueryHasNoResults>
-              <NoResultsWithAddBtn text="Nie znaleziono rodzajów produktów"/>
+              <NoResultsWithAddBtn text="Nie znaleziono kategori produktów"/>
             </QueryHasNoResults>
             <QueryHasResults>
               <ProductCategoriesDataTable/>

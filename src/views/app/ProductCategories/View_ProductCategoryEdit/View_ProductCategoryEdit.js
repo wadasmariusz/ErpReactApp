@@ -7,8 +7,8 @@ import {QueryProvider} from "app/context/data/queries/QueryProvider";
 import {FormEditProductCategory} from "views/app/ProductCategories/View_ProductCategoryEdit/form/Form_EditProductCategory";
 
 const breadcrumbItems = [
-  {label: 'Lista rodzajów produktów', url: route['app.productCategories']},
-  {label: 'Edycja rodzaju produktu'}
+  {label: 'Lista kategori produktów', url: route['app.productCategories']},
+  {label: 'Edycja kategori produktu'}
 ];
 
 const ViewProductCategoryEdit = () => {
