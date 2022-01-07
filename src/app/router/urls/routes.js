@@ -12,6 +12,7 @@ import {dashboardRoutes} from "app/router/urls/app/dashboard/dashboard";
 import {myAccountRoutes} from "app/router/urls/app/myAccount/myCompany";
 import {pigeonNoticesRoutes} from "app/router/urls/app/pigeonNotices/pigeonNotices";
 import {productKindsRoutes} from "app/router/urls/app/productKinds/productKinds";
+import {productCategoriesRoutes} from "app/router/urls/app/productCategories/productCategories";
 
 export const route = {
   '/': `${BASE_URL}/`,
@@ -23,6 +24,7 @@ export const route = {
   ...productsRoutes,
   ...usersRoutes,
   ...productKindsRoutes,
+  ...productCategoriesRoutes,
   ...warehousesRoutes,
   ...warehouseReceiptsRoutes,
   ...interWarehouseTransfersRoutes,

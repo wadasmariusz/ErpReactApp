@@ -6,9 +6,9 @@ import {
   Award,
   Box, BoxArrowInLeft, BoxArrowRight,
   CurrencyDollar,
-  House, Inboxes, PeopleFill,
+  House, Inboxes, PeopleFill, CollectionFill,
   Person,
-  Speedometer2
+  Speedometer2, Bank
 } from "react-bootstrap-icons";
 import {route} from "app/router/urls/routes";
 
@@ -21,6 +21,19 @@ const navigationConfig = (t = () => '') => [
     icon: <Speedometer2 size={20}/>,
     navLink: route['app.dashboard'],
   },
+
+  {
+    type: "groupHeader",
+    groupTitle: "Magazyny"
+  },
+  {
+    id: "warehouses",
+    title: 'Magazyny',
+    type: "item",
+    icon: <Bank size={20}/>,
+    navLink: route['app.warehouses'],
+  },
+
   {
     type: "groupHeader",
     groupTitle: "Produkty"
@@ -40,15 +53,16 @@ const navigationConfig = (t = () => '') => [
     navLink: route['app.productKinds'],
   },
   {
-    type: "groupHeader",
-    groupTitle: "Magazyn"
-  },
-  {
-    id: "warehouses",
-    title: 'Magazyny',
+    id: "productCategory",
+    title: 'Kategorie',
     type: "item",
-    icon: <House size={20}/>,
-    navLink: route['app.warehouses'],
+    icon: <CollectionFill size={20}/>,
+    navLink: route['app.productCategories'],
+  },
+
+  {
+    type: "groupHeader",
+    groupTitle: "Akcja"
   },
   {
     id: "warehouseReceipts",
