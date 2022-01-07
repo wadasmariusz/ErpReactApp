@@ -6,8 +6,8 @@ import {useGetSingleWarehouse} from "app/crud/app/warehouses/getSingle";
 import {QueryProvider} from "app/context/data/queries/QueryProvider";
 import {EditButton} from "components/button/EditButton";
 import {CardWarehouseDetails} from "./cards/CardWarehouseDetails";
-import {Dash, Pen, Plus, PlusCircle} from "react-bootstrap-icons";
-import {SIZE_INPUT_ICON, SIZE_INPUT_ICON_SM} from "../../../../app/config/sizes";
+import {BoxArrowInLeft, BoxArrowRight, Dash, Pen, Plus, PlusCircle} from "react-bootstrap-icons";
+import {SIZE_INPUT_ICON_SM} from "../../../../app/config/sizes";
 import {CardWarehouseShelf} from "./cards/CardWarehouseShelf";
 import {AddWarehouseShelves} from "./components/modals/AddWarehouseShelves";
 
@@ -26,16 +26,16 @@ const ViewWarehouse = () => {
       <Breadcrumb items={breadcrumbItems(query?.data?.name)}>
 
         <Link
-          // to={route["app.warehouse.edit"](warehouseId)}
+          to={route["app.warehouse.receipt.create"](warehouseId)}
           className="btn btn-success d-block flex-grow-1 mr-50">
-          <PlusCircle className="mr-25" size={SIZE_INPUT_ICON_SM}/>
-          Dodaj PM
+          <BoxArrowInLeft className="mr-25" size={SIZE_INPUT_ICON_SM}/>
+          PM
         </Link>
         <Link
-          // to={route["app.warehouse.edit"](warehouseId)}
+          to={route["app.warehouse.release.create"](warehouseId)}
           className="btn btn-dark d-block flex-grow-1 mr-50">
-          <Dash className="mr-25" size={SIZE_INPUT_ICON_SM}/>
-          Wydaj WM
+          <BoxArrowRight className="mr-25" size={SIZE_INPUT_ICON_SM}/>
+          WM
         </Link>
 
         <AddWarehouseShelves/>

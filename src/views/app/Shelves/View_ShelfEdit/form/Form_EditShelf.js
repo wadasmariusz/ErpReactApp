@@ -1,16 +1,16 @@
-import React from "react";
+﻿import React from "react";
 import {useHistory, useParams} from "react-router-dom";
 import {route} from "app/router/urls/routes";
 import {FormProvider, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
-import {interWarehouseTransferSchema, FormInterWarehouseTransfer,} from "views/app/InterWarehouseTransfers/common/form/InterWarehouseTransferForm";
+import {warehouseShelfSchema, FormWarehouseShelf,} from "views/app/Shelves/common/forms/WarehouseShelfForm";
 import {useHookFormMutation} from "app/hooks/crud/useHookFormMutation";
-import {updateInterWarehouseTransfer} from "app/crud/app/interWarehouseTransfers/updateInterWarehouseTransfer";
+import {updateWarehouseShelf} from "app/crud/app/shelves/updateWarehouseShelf";
 import {HookFormError} from "components/form/helpers/HookFormError";
 import {useQueryContext} from "app/context/data/queries/QueryProvider";
 
-export const FormEditInterWarehouseTransfer = () => {
-  const {interWarehouseTransferId} = useParams();
+export const FormEditShelf = () => {
+  const {warehouseId, shelfId} = useParams();
   const history = useHistory();
   const {data} = useQueryContext();
 
@@ -18,21 +18,21 @@ export const FormEditInterWarehouseTransfer = () => {
 
   const methods = useForm({
     defaultValues: {
-      ...interWarehouseTransferSchema.default(),
+      ...warehouseShelfSchema.default(),
       ...data,
       type: data?.type?.id,
     },
-    resolver: yupResolver(interWarehouseTransferSchema),
+    resolver: yupResolver(warehouseShelfSchema),
   });
 
-  // console.log(interWarehouseTransferSchema.default(), data);
+  // console.log(warehouseShelfSchema.default(), data);
 
   const handleSuccess = ({data}) => {
     //redirect to employee
-    history.push(route["app.interWarehouseTransfer"](interWarehouseTransferId));
+    history.push(route["app.warehouse"](warehouseId));
   };
 
-  const mutation = useHookFormMutation(methods, updateInterWarehouseTransfer(interWarehouseTransferId), {
+  const mutation = useHookFormMutation(methods, updateWarehouseShelf(warehouseId, shelfId), {
     handleSuccess,
   });
 
@@ -41,10 +41,9 @@ export const FormEditInterWarehouseTransfer = () => {
       <FormProvider {...methods}>
         <form onSubmit={mutation.mutate}>
           <HookFormError/>
-          <FormInterWarehouseTransfer
-            isUpdate={true}
+          <FormWarehouseShelf
             submitText="Zapisz"
-            cancelUrl={route["app.interWarehouseTransfer"](interWarehouseTransferId)}
+            cancelUrl={route["app.warehouse"](warehouseId)}
           />
         </form>
       </FormProvider>

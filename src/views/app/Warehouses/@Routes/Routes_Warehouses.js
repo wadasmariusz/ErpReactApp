@@ -15,6 +15,15 @@ const ViewWarehouse = React.lazy(() =>
 const ViewWarehouseEdit = React.lazy(() =>
   import("views/app/Warehouses/View_WarehouseEdit/View_WarehouseEdit"),
 );
+const ViewShelfEdit = React.lazy(() =>
+  import("views/app/Shelves/View_ShelfEdit/View_ShelfEdit"),
+);
+const ViewWarehouseReceiptAdd = React.lazy(() =>
+  import("views/app/WarehouseReceipts/View_WarehouseReceiptAdd/View_WarehouseReceiptAdd"),
+);
+const ViewWarehouseReleaseAdd = React.lazy(() =>
+  import("views/app/WarehouseReleases/View_WarehouseReleaseAdd/View_WarehouseReleaseAdd"),
+);
 
 const RoutesWarehouses = () => {
   return (
@@ -31,6 +40,26 @@ const RoutesWarehouses = () => {
         component={ViewWarehouseEdit}
       />
       <AppRoute exact path={route["app.warehouse"]()} component={ViewWarehouse}/>
+
+      {/*shelves*/}
+      <AppRoute
+        exact
+        path={route["app.warehouse.shelf.edit"]()}
+        component={ViewShelfEdit}
+      />
+
+      {/*documents*/}
+      <AppRoute
+        exact
+        path={route["app.warehouse.release.create"]()}
+        component={ViewWarehouseReleaseAdd}
+      />
+
+      <AppRoute
+        exact
+        path={route["app.warehouse.receipt.create"]()}
+        component={ViewWarehouseReceiptAdd}
+      />
 
     </AppSwitch>
   );

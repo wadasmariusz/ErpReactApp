@@ -42,9 +42,8 @@ const ColoredLine = styled.div`
 `;
 
 
-export const FormInterWarehouseTransfer = ({submitText, cancelUrl}) => {
+export const FormInterWarehouseTransfer = ({submitText, cancelUrl, isUpdate}) => {
   const [inputList, setInputList] = useState([{productId: "", quantity: "", sourceShelfId: "", destinationShelfId: ""}]);
-
 
   const {control, setValue, watch, register} = useFormContext();
   const {items, sourceWarehouseId, destinationWarehouseId} = watch();
@@ -70,7 +69,9 @@ export const FormInterWarehouseTransfer = ({submitText, cancelUrl}) => {
   return (
     <div className="row">
       <div className="col-12 pt-25">
-        <InputSourceWarehouse/>
+        <InputSourceWarehouse
+          disabled={isUpdate}
+        />
       </div>
       <div className="col-12 pt-25">
         <InputDestinationWarehouse/>

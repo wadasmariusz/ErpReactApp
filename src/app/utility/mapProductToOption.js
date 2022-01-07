@@ -1,4 +1,4 @@
-﻿export const mapProductToOption = ({name, id, quantity}) => ({
+﻿export const mapProductToOption = ({name, id}) => ({
   value: id,
-  label: `${name} (ilość: ${quantity})`,
+  label: `${name}`,
 })

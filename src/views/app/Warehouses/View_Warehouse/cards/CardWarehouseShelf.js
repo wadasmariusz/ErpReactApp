@@ -2,25 +2,27 @@
 import {Link} from "react-router-dom"
 import {route} from "app/router/urls/routes";
 import {useQueryContext} from "../../../../../app/context/data/queries/QueryProvider";
-import {PlusCircle, Dash} from "react-bootstrap-icons";
+import {PlusCircle, Dash, Pen} from "react-bootstrap-icons";
 import {SIZE_INPUT_ICON, SIZE_INPUT_ICON_SM} from "../../../../../app/config/sizes";
 import {CardWarehouseShelfProductsDataTable} from "./CardWarehouseShelfProductsDataTable";
 
-const ShelfCard = ({shelf}) => {
+const ShelfCard = ({shelf, warehouseId}) => {
   if (!shelf) {
     return "Brak danych";
   }
   const {id, name, products} = shelf;
+  const shelfId = shelf.id;
   return (
     <div className="card">
       <div className="card-header">
         <div className="d-flex justify-content-between">
-          <Link
-            // to={route["app.shelf"](id)}
-          >
           <h4 className="mb-0">{name}</h4>
+          <Link
+            to={route["app.warehouse.shelf.edit"](warehouseId, shelfId)}
+            className="btn btn-primary btn-sm ml-2">
+            <Pen className="mr-25" size={SIZE_INPUT_ICON_SM}/>
+            Edytuj
           </Link>
-
         </div>
       </div>
       <div className="card-body">
@@ -36,7 +38,11 @@ export const CardWarehouseShelf = () => {
   return (
     <>
       {shelves.map(shelfItem => (
-          <ShelfCard key={shelfItem.id} shelf={shelfItem}/>
+          <ShelfCard
+            key={shelfItem.id}
+            shelf={shelfItem}
+            warehouseId = {data?.id}
+          />
         ))}
     </>
   )

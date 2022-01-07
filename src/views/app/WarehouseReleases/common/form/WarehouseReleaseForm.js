@@ -20,6 +20,7 @@ import {
 import {
   InputWarehouseProductShelf
 } from "../../../../../components/form/predefined/select/enum/InputWarehouseProductShelf";
+import {InputSelectedWarehouse} from "../../../../../components/form/predefined/select/enum/InputSelectedWarehouse";
 
 export const warehouseReleaseSchema = yup.object().shape({
   warehouseId: yup.string().required(),
@@ -33,7 +34,7 @@ const ColoredLine = styled.div`
   width: 100%;
 `;
 
-export const FormWarehouseRelease = ({submitText, cancelUrl}) => {
+export const FormWarehouseRelease = ({defaultWarehouseId, submitText, cancelUrl, isUpdate}) => {
   const [inputList, setInputList] = useState([{productId: "", quantity: "", shelfId: ""}]);
 
   const {control, setValue, watch, register} = useFormContext();
@@ -59,7 +60,15 @@ export const FormWarehouseRelease = ({submitText, cancelUrl}) => {
   return (
     <div className="row">
       <div className="col-12 pt-25">
-        <InputWarehouse/>
+        { defaultWarehouseId != null ?
+          (<InputSelectedWarehouse
+            value = {defaultWarehouseId}
+            disabled= {true}
+          />) :
+          (<InputWarehouse
+            disabled={isUpdate}
+          />)
+        }
       </div>
 
       <div className="col-12 pt-25">

@@ -9,6 +9,7 @@ import {FormProvider, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {useHookFormMutation} from "app/hooks/crud/useHookFormMutation";
 import {HookFormError} from "components/form/helpers/HookFormError";
+import {useParams} from "react-router-dom";
 
 const breadcrumbItems = [
   { label: "Lista przyjęć magazynowych", url: route["app.warehouseReceipts"] },
@@ -16,13 +17,14 @@ const breadcrumbItems = [
 ];
 
 const ViewWarehouseReceiptAdd = () => {
+  const {warehouseId} = useParams();
   const history = useHistory();
   const methods = useForm({
     defaultValues: {...warehouseReceiptSchema.default(), items: [{productId: "", quantity: "", shelfId: ""}]},
     resolver: yupResolver(warehouseReceiptSchema),
   });
 
-  const handleSuccess = ({data}) => { //redirect to employee
+  const handleSuccess = ({data}) => {
     history.push(data?.id ? route['app.warehouseReceipt'](data.warehouseReceiptId) : route['app.warehouseReceipts']);
   }
 
@@ -47,6 +49,7 @@ const ViewWarehouseReceiptAdd = () => {
                   <form onSubmit={mutation.mutate}>
                     <HookFormError/>
                     <FormWarehouseReceipt
+                      defaultWarehouseId = {warehouseId}
                       submitText="Dodaj"
                       cancelUrl={route['app.warehouseReceipts']}
                     />

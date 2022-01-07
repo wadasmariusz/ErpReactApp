@@ -2,7 +2,7 @@
 import { BASE_URL_API } from "app/config/env";
 import useQuery2 from "app/hooks/crud/useQuery2";
 import { useOptions } from "app/hooks/crud/useOptions";
-import {mapProductToOption} from "app/utility/mapProductToOption";
+import {mapProductWithQuantityToOption} from "../../utility/mapProductWithQuantityToOption";
 
 const getWarehouseProductShelvesList = (warehouseId, productId) => () =>
   axios({
@@ -17,4 +17,4 @@ const useGetWarehouseProductShelvesList = (warehouseId, productId) => useQuery2(
     isArray: true,
   });
 
-export const useWarehouseProductShelvesList = (warehouseId, productId) => useOptions(useGetWarehouseProductShelvesList, mapProductToOption, [warehouseId, productId]);
+export const useWarehouseProductShelvesList = (warehouseId, productId) => useOptions(useGetWarehouseProductShelvesList, mapProductWithQuantityToOption, [warehouseId, productId]);
