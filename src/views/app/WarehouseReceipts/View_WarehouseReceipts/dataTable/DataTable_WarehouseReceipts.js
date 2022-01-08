@@ -7,13 +7,15 @@ import styled from "styled-components";
 import { truncateText } from "app/utility/truncateText";
 import {mapPigeonStatusToBadge} from "../../../../../components/maps/mapPigeonStatusToBadge";
 import {mapDocumentStatusToBadge} from "../../../../../components/maps/mapDocumentStatusToBadge";
+import dayjs from "dayjs";
 // import {mapWarehouseReceiptTypeToBadge} from "../../../../../components/maps/mapWarehouseReceiptTypeToBadge";
 
 const headers = [
-  ["Nr", 3],
-  ["Magazyn", 4],
+  ["Nr", 2],
+  ["Magazyn", 3],
   ["Status", 3],
-  ["Ilość pozycji", 3]
+  ["Data", 3],
+  ["Utworzył", 3],
 ];
 
 const ItemWrapper = styled.div`
@@ -26,12 +28,13 @@ export const WarehouseReceiptsDataTable = () => {
 
   return (
     <DataTable header={headers}>
-      {!!data?.length && data?.map(({ id, warehouse, status, itemsCount }) => (
+      {!!data?.length && data?.map(({ id, warehouse, status, createdAt, createdByUser }) => (
         <DataTableItem key={id} path={route["app.warehouseReceipt"](id)}>
           <div>PM-{id}</div>
           <div>{warehouse?.name}</div>
           <div>{mapDocumentStatusToBadge(status)}</div>
-          <div>{itemsCount}</div>
+          <div>{dayjs(createdAt).format("DD-MM-YYYY HH:mm")}</div>
+          <div>{createdByUser?.firstName} {createdByUser?.lastName}</div>
         </DataTableItem>
       ))}
     </DataTable>

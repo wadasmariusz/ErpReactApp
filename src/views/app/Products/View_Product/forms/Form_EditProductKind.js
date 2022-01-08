@@ -8,38 +8,39 @@ import {useQueryContext} from "app/context/data/queries/QueryProvider";
 import {InputSubmit} from "components/form/special/Submit/Input_Submit";
 import {Button} from "reactstrap";
 import {toast} from "react-toastify";
-import {confirmWarehouseReceipt} from "app/crud/app/warehouseReceipts/confirmWarehouseReceipt";
-import {Pen, Tag} from "react-bootstrap-icons";
-import {SIZE_INPUT_ICON} from "../../../../../app/config/sizes";
+import {productKindSchema} from "views/app/Products/common/form/ProductKindForm";
+import {InputProductKind} from "../../../../../components/form/predefined/select/enum/Input_ProductKind";
+import {assignProductKind} from "../../../../../app/crud/app/products/assignProductKind";
 
-
-export const FormConfirmWarehouseReceipt = ({
-                                        closeModal = () => {
-                                        }
-                                      }) => {
-  const {warehouseReceiptId} = useParams();
-  const history = useHistory();
+export const FormEditProductKind = ({
+                                          closeModal = () => {
+                                          }
+                                        }) => {
+  const {productId} = useParams();
   const {data, refetch} = useQueryContext();
 
   const methods = useForm({
     defaultValues: {
-      warehouseReceiptId: warehouseReceiptId
+      ...productKindSchema.default(),
+      ...data,
+      productKindId: data?.productKindId
     },
+    resolver: yupResolver(productKindSchema),
   });
 
-  // console.log(warehouseSchema.default(), data)
+  // console.log(productSchema.default(), data)
 
-  const handleSuccess = ({data}) => {
+  const handleSuccess = () => {
     //redirect to employee
     refetch();
     closeModal();
   };
 
   const handleError = () => {
-    toast.error("Potwierdzenie dokumentu nie powiodło się.")
+    toast.error("Zmiana rodzaju nie powiodła się.")
   }
 
-  const mutation = useHookFormMutation(methods, confirmWarehouseReceipt(warehouseReceiptId), {
+  const mutation = useHookFormMutation(methods, assignProductKind(productId), {
     handleSuccess,
     handleError
   });
@@ -47,18 +48,16 @@ export const FormConfirmWarehouseReceipt = ({
   return (
     <>
       <FormProvider {...methods}>
+
         <form onSubmit={mutation.mutate}>
-          <div className="row">
-            <div className="col-12 py-2">
-              <h4>Po zatwierdzeniu dokumentu nie będzie możliwe wprowadzanie zmian.</h4>
-              <h4>Czy na pewno chcesz potwierdzić dokument?</h4>
-            </div>
-          </div>
           <HookFormError/>
           <div className="row">
+            <div className="col-12 pt-25">
+              <InputProductKind/>
+            </div>
             <div className="col-12 d-flex justify-content-end">
               <Button onClick={closeModal} color="secondary">Anuluj</Button>
-              <InputSubmit value={"Potwierdź"} className="ml-25"/>
+              <InputSubmit value={"Zapisz"} className="ml-25"/>
             </div>
           </div>
         </form>

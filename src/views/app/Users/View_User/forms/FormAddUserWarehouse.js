@@ -8,23 +8,24 @@ import {useQueryContext} from "app/context/data/queries/QueryProvider";
 import {InputSubmit} from "components/form/special/Submit/Input_Submit";
 import {Button} from "reactstrap";
 import {toast} from "react-toastify";
-import {confirmWarehouseReceipt} from "app/crud/app/warehouseReceipts/confirmWarehouseReceipt";
-import {Pen, Tag} from "react-bootstrap-icons";
-import {SIZE_INPUT_ICON} from "../../../../../app/config/sizes";
+import {createUserWarehouse} from "app/crud/app/users/createUserWarehouse";
+import {InputWarehouse} from "../../../../../components/form/predefined/select/enum/Input_Warehouse";
+import {userWarehouseSchema} from "../../common/form/UserWarehouseForm";
+import {SIZE_INPUT_ICON_SM} from "../../../../../app/config/sizes";
+import {InputMultipleWarehouse} from "../../../../../components/form/predefined/select/enum/InputMultipleWarehouse";
 
 
-export const FormConfirmWarehouseReceipt = ({
-                                        closeModal = () => {
-                                        }
-                                      }) => {
-  const {warehouseReceiptId} = useParams();
+export const FormAddUserWarehouse = ( {closeModal = () => { } }) => {
+  const {userId} = useParams();
   const history = useHistory();
   const {data, refetch} = useQueryContext();
 
   const methods = useForm({
     defaultValues: {
-      warehouseReceiptId: warehouseReceiptId
+      ...userWarehouseSchema.default(),
+      userId: userId
     },
+    resolver: yupResolver(userWarehouseSchema),
   });
 
   // console.log(warehouseSchema.default(), data)
@@ -36,10 +37,10 @@ export const FormConfirmWarehouseReceipt = ({
   };
 
   const handleError = () => {
-    toast.error("Potwierdzenie dokumentu nie powiodło się.")
+    toast.error("Dodawanie dostępu do magazynu nie powiodło się.")
   }
 
-  const mutation = useHookFormMutation(methods, confirmWarehouseReceipt(warehouseReceiptId), {
+  const mutation = useHookFormMutation(methods, createUserWarehouse(userId), {
     handleSuccess,
     handleError
   });
@@ -48,17 +49,16 @@ export const FormConfirmWarehouseReceipt = ({
     <>
       <FormProvider {...methods}>
         <form onSubmit={mutation.mutate}>
-          <div className="row">
-            <div className="col-12 py-2">
-              <h4>Po zatwierdzeniu dokumentu nie będzie możliwe wprowadzanie zmian.</h4>
-              <h4>Czy na pewno chcesz potwierdzić dokument?</h4>
-            </div>
-          </div>
           <HookFormError/>
           <div className="row">
+            <div className="col-12 col-lg-12 pt-25">
+              <InputMultipleWarehouse
+                userId = {userId}
+              />
+            </div>
             <div className="col-12 d-flex justify-content-end">
               <Button onClick={closeModal} color="secondary">Anuluj</Button>
-              <InputSubmit value={"Potwierdź"} className="ml-25"/>
+              <InputSubmit value={"OK"} className="ml-25"/>
             </div>
           </div>
         </form>

@@ -112,9 +112,9 @@ export const FormWarehouseRelease = ({defaultWarehouseId, submitText, cancelUrl,
                   </div>
                 </div>
               </div>
-              <div className="col-1 my-auto">
+              <div className="col-1 p-0 my-auto d-flex justify-content-center">
                 {fields.length !== 1 &&
-                  <Button onClick={handleRemoveClick(i)} color="danger">
+                  <Button onClick={handleRemoveClick(i)} color="danger" className="p-1">
                     <TrashFill className="mr-25" size={SIZE_INPUT_ICON_SM}/>
                   </Button>}
               </div>

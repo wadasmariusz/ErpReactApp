@@ -1,29 +1,22 @@
 ﻿import React from "react";
 import {useHistory, useParams} from "react-router-dom";
 import {FormProvider, useForm} from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup";
 import {useHookFormMutation} from "app/hooks/crud/useHookFormMutation";
 import {HookFormError} from "components/form/helpers/HookFormError";
 import {useQueryContext} from "app/context/data/queries/QueryProvider";
 import {InputSubmit} from "components/form/special/Submit/Input_Submit";
 import {Button} from "reactstrap";
 import {toast} from "react-toastify";
-import {confirmWarehouseReceipt} from "app/crud/app/warehouseReceipts/confirmWarehouseReceipt";
-import {Pen, Tag} from "react-bootstrap-icons";
-import {SIZE_INPUT_ICON} from "../../../../../app/config/sizes";
+import {removeWarehouseAccess} from "app/crud/app/users/removeWarehouseAccess";
 
 
-export const FormConfirmWarehouseReceipt = ({
-                                        closeModal = () => {
-                                        }
-                                      }) => {
-  const {warehouseReceiptId} = useParams();
+export const FormRemoveWarehouseAccess = ({ closeModal = () => {}, warehouseId}) => {
+  const {userId} = useParams();
   const history = useHistory();
   const {data, refetch} = useQueryContext();
 
   const methods = useForm({
     defaultValues: {
-      warehouseReceiptId: warehouseReceiptId
     },
   });
 
@@ -36,10 +29,10 @@ export const FormConfirmWarehouseReceipt = ({
   };
 
   const handleError = () => {
-    toast.error("Potwierdzenie dokumentu nie powiodło się.")
+    toast.error("Nie powiodło się usuwanie dostępu.")
   }
 
-  const mutation = useHookFormMutation(methods, confirmWarehouseReceipt(warehouseReceiptId), {
+  const mutation = useHookFormMutation(methods, removeWarehouseAccess(userId, warehouseId), {
     handleSuccess,
     handleError
   });
@@ -48,17 +41,11 @@ export const FormConfirmWarehouseReceipt = ({
     <>
       <FormProvider {...methods}>
         <form onSubmit={mutation.mutate}>
-          <div className="row">
-            <div className="col-12 py-2">
-              <h4>Po zatwierdzeniu dokumentu nie będzie możliwe wprowadzanie zmian.</h4>
-              <h4>Czy na pewno chcesz potwierdzić dokument?</h4>
-            </div>
-          </div>
           <HookFormError/>
           <div className="row">
             <div className="col-12 d-flex justify-content-end">
               <Button onClick={closeModal} color="secondary">Anuluj</Button>
-              <InputSubmit value={"Potwierdź"} className="ml-25"/>
+              <InputSubmit value={"OK"} className="ml-25"/>
             </div>
           </div>
         </form>

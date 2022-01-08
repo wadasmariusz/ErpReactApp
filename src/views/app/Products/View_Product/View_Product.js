@@ -6,6 +6,9 @@ import {useGetSingleProduct} from "app/crud/app/products/getSingle";
 import {QueryProvider} from "app/context/data/queries/QueryProvider";
 import {EditButton} from "components/button/EditButton";
 import {CardProductDetails} from "./cards/CardProductDetails";
+import {CardPigeonParents} from "../../Pigeons/View_Pigeon/cards/CardPigeonParents";
+import {CardPigeonWarehouse} from "../../Pigeons/View_Pigeon/cards/CardPigeonWarehouse";
+import {CardProductKind} from "./cards/CardProductKind";
 
 const breadcrumbItems = (name) => [
   {label: "Lista produktów", url: route["app.products"]},
@@ -18,13 +21,13 @@ const ViewProduct = () => {
 
   return (
     <>
-      <Breadcrumb items={breadcrumbItems(query?.data?.name)}>
-        <EditButton url={route["app.product.edit"](productId)}/>
-      </Breadcrumb>
-      <div className="container pt-1">
-        <div className="row">
-          <div className="col-12">
-            <QueryProvider {...query}>
+      <QueryProvider {...query}>
+        <Breadcrumb items={breadcrumbItems(query?.data?.name)}>
+          <EditButton url={route["app.product.edit"](productId)}/>
+        </Breadcrumb>
+        <div className="container pt-1">
+          <div className="row">
+            <div className="col-12 col-lg-9">
               <div className="card">
                 <div className="card-body">
                   <div className="row">
@@ -34,10 +37,23 @@ const ViewProduct = () => {
                   </div>
                 </div>
               </div>
-            </QueryProvider>
+            </div>
+
+            <div className="col-12 col-lg-3 d-flex  flex-column">
+              <div className="card w-100 h-100 mb-1">
+                <div className="card-body d-flex flex-column">
+                  <CardProductKind/>
+                </div>
+              </div>
+              <div className="card mb-0">
+                <div className="card-body d-flex flex-column">
+                  {/*<CardProductCategory/>*/}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </QueryProvider>
     </>
   );
 };

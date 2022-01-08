@@ -14,9 +14,9 @@ import {SIZE_INPUT_ICON} from "../../../../../app/config/sizes";
 
 
 export const FormConfirmInterWarehouseTransfer = ({
-                                              closeModal = () => {
-                                              }
-                                            }) => {
+                                                    closeModal = () => {
+                                                    }
+                                                  }) => {
   const {interWarehouseTransferId} = useParams();
   const history = useHistory();
   const {data, refetch} = useQueryContext();
@@ -48,11 +48,17 @@ export const FormConfirmInterWarehouseTransfer = ({
     <>
       <FormProvider {...methods}>
         <form onSubmit={mutation.mutate}>
+          <div className="row">
+            <div className="col-12 py-2">
+              <h4>Po zatwierdzeniu dokumentu nie będzie możliwe wprowadzanie zmian.</h4>
+              <h4>Czy na pewno chcesz potwierdzić dokument?</h4>
+            </div>
+          </div>
           <HookFormError/>
           <div className="row">
             <div className="col-12 d-flex justify-content-end">
               <Button onClick={closeModal} color="secondary">Anuluj</Button>
-              <InputSubmit value={"OK"} className="ml-25"/>
+              <InputSubmit value={"Potwierdź"} className="ml-25"/>
             </div>
           </div>
         </form>

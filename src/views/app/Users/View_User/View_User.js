@@ -6,6 +6,7 @@ import {useGetSingleUser} from "app/crud/app/users/getSingle";
 import {QueryProvider} from "app/context/data/queries/QueryProvider";
 import {EditButton} from "components/button/EditButton";
 import {CardUserDetails} from "./cards/CardUserDetails";
+import {CardUserWarehouses} from "./cards/CardUserWarehouses";
 
 const breadcrumbItems = (name) => [
   {label: "Lista użytkowników", url: route["app.users"]},
@@ -22,9 +23,9 @@ const ViewUser = () => {
         <EditButton url={route["app.user.edit"](userId)}/>
       </Breadcrumb>
       <div className="container pt-1">
-        <div className="row">
-          <div className="col-12">
-            <QueryProvider {...query}>
+        <QueryProvider {...query}>
+          <div className="row">
+            <div className="col-12">
               <div className="card">
                 <div className="card-body">
                   <div className="row">
@@ -34,9 +35,16 @@ const ViewUser = () => {
                   </div>
                 </div>
               </div>
-            </QueryProvider>
+            </div>
           </div>
-        </div>
+          <div className="row">
+            <div className="col-12 d-flex flex-column">
+              <div className="card-body d-flex flex-column">
+                <CardUserWarehouses/>
+              </div>
+            </div>
+          </div>
+        </QueryProvider>
       </div>
     </>
   );
