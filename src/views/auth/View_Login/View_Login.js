@@ -19,12 +19,12 @@ const ViewLogin = () => {
         </div>
       </div>
       <FormLogin />
-      <div className="text-center pt-2 small">
-        Nie masz jeszcze konta?
-        <Link to={route["auth.register"]} className="ml-25">
-          Zarejestruj się
-        </Link>
-      </div>
+      {/*<div className="text-center pt-2 small">*/}
+      {/*  Nie masz jeszcze konta?*/}
+      {/*  <Link to={route["auth.register"]} className="ml-25">*/}
+      {/*    Zarejestruj się*/}
+      {/*  </Link>*/}
+      {/*</div>*/}
     </AuthLayout>
   );
 };

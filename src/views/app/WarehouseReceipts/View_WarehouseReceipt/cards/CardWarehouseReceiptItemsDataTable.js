@@ -5,7 +5,7 @@ import {route} from "app/router/urls/routes";
 import {useQueryContext} from "app/context/data/queries/QueryProvider";
 
 const headers = [
-  ["Id", 1],
+  // ["Id", 1],
   ["Produkt", 5],
   ["Ilość", 1],
   ["Półka", 1],
@@ -30,7 +30,7 @@ export const CardWarehouseReceiptItemsDataTable = () => {
               key={id}
               // path={route["app.item"](id)}
             >
-              <div className="text-uppercase">{id}</div>
+              {/*<div className="text-uppercase">{id}</div>*/}
               <div>{product.name}</div>
               <div className="text-uppercase">{quantity}</div>
               <div>{shelf.name}</div>

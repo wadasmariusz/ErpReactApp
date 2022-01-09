@@ -7,8 +7,7 @@ import styled from "styled-components";
 import { truncateText } from "app/utility/truncateText";
 
 const headers = [
-  ["Id", 4],
-  ["Nazwa", 3]
+  ["Nazwa"]
 ];
 
 const ItemWrapper = styled.div`
@@ -23,7 +22,6 @@ export const ProductCategoriesDataTable = () => {
     <DataTable header={headers}>
       {!!data?.length && data?.map(({ id, name, shelfCount }) => (
         <DataTableItem key={id} path={route["app.productCategory"](id)}>
-          <div>K-{id}</div>
           <div>{name}</div>
         </DataTableItem>
       ))}

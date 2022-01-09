@@ -41,11 +41,11 @@ export const AuthLayout = ({children, image}) => {
           </Card>
         </Col>
       </Row>
-      <div className="text-center mt-3">
-        <a href="/">
-          <Button color="white" size="md" className="round"><ChevronLeft size={18}/> Powrót do strony głównej</Button>
-        </a>
-      </div>
+      {/*<div className="text-center mt-3">*/}
+      {/*  <a href="/">*/}
+      {/*    <Button color="white" size="md" className="round"><ChevronLeft size={18}/> Powrót do strony głównej</Button>*/}
+      {/*  </a>*/}
+      {/*</div>*/}
     </Container>
   );
 };

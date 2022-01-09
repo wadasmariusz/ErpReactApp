@@ -85,12 +85,12 @@ const PublicNavbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    className="nav-link button-1 mx-25 button-semibold"
-                    to={route["auth.register"]}
-                  >
-                    Zarejestruj
-                  </Link>
+                  {/*<Link*/}
+                  {/*  className="nav-link button-1 mx-25 button-semibold"*/}
+                  {/*  to={route["auth.register"]}*/}
+                  {/*>*/}
+                  {/*  Zarejestruj*/}
+                  {/*</Link>*/}
                 </li>
               </>
             )}
