@@ -7,8 +7,9 @@ import styled from "styled-components";
 import { truncateText } from "app/utility/truncateText";
 
 const headers = [
-  ["Code", 2],
-  ["Nazwa", 4]
+  ["Code", 3],
+  ["Nazwa", 3],
+  ["Ilość", 1]
 ];
 
 const ItemWrapper = styled.div`
@@ -21,10 +22,11 @@ export const ProductsDataTable = () => {
 
   return (
     <DataTable header={headers}>
-      {!!data?.length && data?.map(({ id, code, name, shelfCount }) => (
+      {!!data?.length && data?.map(({ id, code, name, quantity, shelfCount }) => (
         <DataTableItem key={id} path={route["app.product"](id)}>
           <div>{code}</div>
           <div>{name}</div>
+          <div className="text-uppercase">{quantity}</div>
           {/*<div>{truncateText(description, 60)}</div>*/}
         </DataTableItem>
       ))}

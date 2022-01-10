@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import { InputText } from "components/form/text/Text/Input_Text";
-import { Folder, Pen, Tags } from "react-bootstrap-icons";
+import {Coin, Folder, Pen, Tags} from "react-bootstrap-icons";
 import { SIZE_INPUT_ICON } from "app/config/sizes";
 import { InputSubmit } from "components/form/special/Submit/Input_Submit";
 import * as yup from "yup";
@@ -33,6 +33,15 @@ export const FormProduct = ({ submitText, cancelUrl }) => {
           label="Nazwa"
         />
       </div>
+
+      <div className="col-12 pt-25">
+        <InputText
+          name={"minQuantity"}
+          icon={<Tags size={SIZE_INPUT_ICON} />}
+          label="Minimalna ilość"
+        />
+      </div>
+
       <div className="col-12 pt-25">
         <InputTextarea
           name="description"

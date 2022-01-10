@@ -12,6 +12,7 @@ export const CardProductDetails = () => {
       </CardHeader>
       <CardBody>
         <div>Kod: {data?.code}</div>
+        <div>Minimalna ilość: {data?.minQuantity}</div>
         <div>Opis: {data?.description}</div>
 
       </CardBody>

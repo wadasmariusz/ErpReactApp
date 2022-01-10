@@ -9,6 +9,7 @@ import {CardProductDetails} from "./cards/CardProductDetails";
 import {CardPigeonParents} from "../../Pigeons/View_Pigeon/cards/CardPigeonParents";
 import {CardPigeonWarehouse} from "../../Pigeons/View_Pigeon/cards/CardPigeonWarehouse";
 import {CardProductKind} from "./cards/CardProductKind";
+import {CardAvailabilityProductsDataTable} from "./cards/CardAvailabilityProductsDataTable";
 
 const breadcrumbItems = (name) => [
   {label: "Lista produktów", url: route["app.products"]},
@@ -37,10 +38,24 @@ const ViewProduct = () => {
                   </div>
                 </div>
               </div>
+
+              <div className="row">
+                <div className="col-12">
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="row">
+                        <div className='col-12'>
+                          <CardAvailabilityProductsDataTable/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="col-12 col-lg-3 d-flex  flex-column">
-              <div className="card w-100 h-100 mb-1">
+              <div className="card w-100 h-49 mb-1">
                 <div className="card-body d-flex flex-column">
                   <CardProductKind/>
                 </div>
