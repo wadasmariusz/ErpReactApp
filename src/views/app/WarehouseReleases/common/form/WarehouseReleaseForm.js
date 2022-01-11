@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {InputText} from "components/form/text/Text/Input_Text";
-import {TrashFill} from "react-bootstrap-icons";
+import {Coin, TrashFill} from "react-bootstrap-icons";
 import {SIZE_INPUT_ICON, SIZE_INPUT_ICON_SM} from "app/config/sizes";
 import {InputSubmit} from "components/form/special/Submit/Input_Submit";
 import * as yup from "yup";

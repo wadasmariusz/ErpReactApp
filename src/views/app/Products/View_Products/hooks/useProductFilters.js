@@ -16,7 +16,7 @@ export const useProductFilters = (withUrl = true) => {
   const history = useHistory();
   const setSearch = (search) => setNextFilters({search});
   const setKind = (kind) => setNextFilters({kind: kind?.value || undefined});
-  const setCategory = (category) => setNextFilters({category});
+  const setCategory = (category) => setNextFilters({category: category?.value || undefined});
 
   useEffect(() => {
     const params = qs.parse(search, {ignoreQueryPrefix: true});
