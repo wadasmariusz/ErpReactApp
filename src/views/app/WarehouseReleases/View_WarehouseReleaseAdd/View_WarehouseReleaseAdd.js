@@ -19,7 +19,7 @@ const ViewWarehouseReleaseAdd = () => {
   const {warehouseId} = useParams();
   const history = useHistory();
   const methods = useForm({
-    defaultValues: {...warehouseReleaseSchema.default(), items: [{productId: "", quantity: "", shelfId: ""}]},
+    defaultValues: {...warehouseReleaseSchema.default(), warehouseId, items: [{productId: "", quantity: "", shelfId: ""}]},
     resolver: yupResolver(warehouseReleaseSchema),
   });
 

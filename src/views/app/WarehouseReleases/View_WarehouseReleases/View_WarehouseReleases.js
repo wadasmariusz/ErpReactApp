@@ -35,4 +35,4 @@ const ViewWarehouseReleases = () => {
   );
 };
 
-export default withFilters(ViewWarehouseReleases, {mode: "manual"});
+export default withFilters(ViewWarehouseReleases, {mode: "urlParams"});

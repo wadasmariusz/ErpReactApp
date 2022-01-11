@@ -1,5 +1,5 @@
 ﻿import React from "react";
-import {useHistory, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {FormProvider, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {useHookFormMutation} from "app/hooks/crud/useHookFormMutation";
@@ -23,7 +23,7 @@ export const FormEditProductKind = ({
     defaultValues: {
       ...productKindSchema.default(),
       ...data,
-      productKindId: data?.productKindId
+      productKindId: data?.productKind?.id
     },
     resolver: yupResolver(productKindSchema),
   });

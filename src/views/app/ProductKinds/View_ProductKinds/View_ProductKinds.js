@@ -35,4 +35,4 @@ const ViewProductKinds = () => {
   );
 };
 
-export default withFilters(ViewProductKinds, {mode: "manual"});
+export default withFilters(ViewProductKinds, {mode: "urlParams"});

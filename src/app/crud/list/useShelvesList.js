@@ -4,7 +4,7 @@ import useQuery2 from "app/hooks/crud/useQuery2";
 import { useOptions } from "app/hooks/crud/useOptions";
 import {mapShelfToOption} from "app/utility/mapShelfToOption";
 
-const getShelvesList = (warehouseId) =>
+const getShelvesList = (warehouseId) => () =>
   axios({
     method: "GET",
     url: `${BASE_URL_API}/v1/warehouses/${warehouseId}/shelves/list`,
@@ -15,7 +15,7 @@ const getShelvesList = (warehouseId) =>
 const useGetShelvesList = (warehouseId) =>
   useQuery2({
     queryKey: ["app.list.shelves", warehouseId],
-    queryFn: getShelvesList,
+    queryFn: getShelvesList(warehouseId),
     isArray: true,
   });
 

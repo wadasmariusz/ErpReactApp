@@ -35,4 +35,4 @@ const ViewWarehouseReceipts = () => {
   );
 };
 
-export default withFilters(ViewWarehouseReceipts, {mode: "manual"});
+export default withFilters(ViewWarehouseReceipts, {mode: "urlParams"});

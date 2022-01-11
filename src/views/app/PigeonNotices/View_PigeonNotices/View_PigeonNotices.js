@@ -35,4 +35,4 @@ const ViewPigeons = () => {
   );
 };
 
-export default withFilters(ViewPigeons, {mode: "manual"});
+export default withFilters(ViewPigeons, {mode: "urlParams"});

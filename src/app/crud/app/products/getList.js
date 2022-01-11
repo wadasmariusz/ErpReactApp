@@ -2,15 +2,18 @@
 import { BASE_URL_API } from "app/config/env";
 import { usePaginatedQuery2 } from "app/hooks/crud/usePaginatedQuery2";
 
-const getList = ({ page, perPage }, []) =>
-  axios({
+const getList = ({ page, perPage, ...rest}, [], filters) => {
+
+  return axios({
     method: "GET",
     url: `${BASE_URL_API}/v1/products`,
     params: {
       CurrentPage: page,
       PerPage: perPage,
+      ...filters
     },
   });
+}
 
 export const useGetProducts = () =>
   usePaginatedQuery2({

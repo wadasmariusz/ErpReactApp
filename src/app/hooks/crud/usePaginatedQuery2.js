@@ -23,6 +23,7 @@ export const usePaginatedQuery2 = ({
                                      extractData = data => data?.items,
                                    }) => {
   const {page: _p, perPage: _pp, ...filters} = useAppliedFilters();
+
   const params = useAllLocationParams();
   const [{pageParam, resultsParam}, setState] = useObjectState(
     initialState(defaultPage, defaultPageSize),

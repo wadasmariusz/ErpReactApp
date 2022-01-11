@@ -1,18 +1,14 @@
 import React, {useState} from "react";
 import {InputText} from "components/form/text/Text/Input_Text";
-import {BoundingBox, Box, Cart, Coin, Folder, Pen, Person, PlusCircle, Tags, TrashFill} from "react-bootstrap-icons";
+import {TrashFill} from "react-bootstrap-icons";
 import {SIZE_INPUT_ICON, SIZE_INPUT_ICON_SM} from "app/config/sizes";
 import {InputSubmit} from "components/form/special/Submit/Input_Submit";
 import * as yup from "yup";
 import {Button} from "reactstrap";
 import {Link} from "react-router-dom";
-import {InputDatePicker} from "components/form/special/Datepicker/Input_Datepicker";
-import {InputTextarea} from "components/form/text/Textarea/Input_Textarea";
 import {InputWarehouse} from "../../../../../components/form/predefined/select/enum/Input_Warehouse";
 import CountBy from "underscore/modules/countBy";
 import styled from "styled-components";
-import {InputProduct} from "../../../../../components/form/predefined/select/enum/Input_Product";
-import {InputShelf} from "../../../../../components/form/predefined/select/enum/Input_Shelf";
 import {useFieldArray, useFormContext} from "react-hook-form";
 import {
   InputWarehouseReleaseProduct
@@ -38,7 +34,7 @@ export const FormWarehouseRelease = ({defaultWarehouseId, submitText, cancelUrl,
   const [inputList, setInputList] = useState([{productId: "", quantity: "", shelfId: ""}]);
 
   const {control, setValue, watch, register} = useFormContext();
-  const {items, warehouseId} = watch();
+  const {warehouseId = defaultWarehouseId, items} = watch();
   const {fields, append, remove} = useFieldArray({
     control,
     name: "items"

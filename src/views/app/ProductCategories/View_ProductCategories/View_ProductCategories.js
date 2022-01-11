@@ -35,4 +35,4 @@ const ViewProductCategories = () => {
   );
 };
 
-export default withFilters(ViewProductCategories, {mode: "manual"});
+export default withFilters(ViewProductCategories, {mode: "urlParams"});

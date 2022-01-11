@@ -2,7 +2,6 @@
 import { Breadcrumb } from "components/includes/Breadcrumb";
 import { route } from "app/router/urls/routes";
 import { useHistory } from "react-router";
-import { Card, Container, Button } from "reactstrap";
 import { createWarehouseReceipt } from "app/crud/app/warehouseReceipts/createWarehouseReceipt";
 import {warehouseReceiptSchema, FormWarehouseReceipt} from "views/app/WarehouseReceipts/common/form/WarehouseReceiptForm";
 import {FormProvider, useForm} from "react-hook-form";
@@ -20,7 +19,7 @@ const ViewWarehouseReceiptAdd = () => {
   const {warehouseId} = useParams();
   const history = useHistory();
   const methods = useForm({
-    defaultValues: {...warehouseReceiptSchema.default(), items: [{productId: "", quantity: "", shelfId: ""}]},
+    defaultValues: {...warehouseReceiptSchema.default(), warehouseId, items: [{productId: "", quantity: "", shelfId: ""}]},
     resolver: yupResolver(warehouseReceiptSchema),
   });
 

@@ -22,7 +22,7 @@ export default withFilters(ViewProjects, config);
 ```
 const config = {
   filterMode: "combined", //default
-  applyMode: 'auto' //default ['auto', 'manual']
+  applyproductauto' //default ['auto', 'manual']
 }
 ```
 **mode** (enum):

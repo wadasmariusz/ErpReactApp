@@ -35,4 +35,4 @@ const ViewInterWarehouseTransfers = () => {
   );
 };
 
-export default withFilters(ViewInterWarehouseTransfers, {mode: "manual"});
+export default withFilters(ViewInterWarehouseTransfers, {mode: "urlParams"});

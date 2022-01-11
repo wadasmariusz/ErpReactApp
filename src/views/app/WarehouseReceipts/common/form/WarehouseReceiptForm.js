@@ -29,8 +29,7 @@ const ColoredLine = styled.div`
 export const FormWarehouseReceipt = ({defaultWarehouseId, submitText, cancelUrl, isUpdate}) => {
   const [inputList, setInputList] = useState([{productId: "", quantity: "", shelfId: ""}]);
   const {control, setValue, watch, register} = useFormContext();
-  const {items} = watch();
-  const {warehouseId} = defaultWarehouseId != null ? defaultWarehouseId : watch();
+  const {warehouseId = defaultWarehouseId, items} = watch();
   const {fields, append, remove} = useFieldArray({
     control,
     name: "items"
@@ -88,7 +87,6 @@ export const FormWarehouseReceipt = ({defaultWarehouseId, submitText, cancelUrl,
                       name={`items[${i}].productId`}
                     />
                   </div>
-
                   <div className="col-12 pt-25">
                     <InputShelf
                       name={`items[${i}].shelfId`}

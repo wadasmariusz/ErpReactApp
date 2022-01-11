@@ -35,4 +35,4 @@ const ViewUsers = () => {
   );
 };
 
-export default withFilters(ViewUsers, {mode: "manual"});
+export default withFilters(ViewUsers, {mode: "urlParams"});
