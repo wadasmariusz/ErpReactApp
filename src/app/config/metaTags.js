@@ -1,2 +1,2 @@
 
-export const defaultTitle = (title) => `${title} - PigeonManager`;
+export const defaultTitle = (title) => `${title} - MansardManager`;
