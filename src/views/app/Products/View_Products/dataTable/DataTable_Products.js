@@ -7,8 +7,8 @@ import styled from "styled-components";
 import { truncateText } from "app/utility/truncateText";
 
 const headers = [
-  ["Code", 3],
-  ["Nazwa", 3],
+  ["Kod", 1],
+  ["Nazwa", 5],
   ["Ilość", 1]
 ];
 
