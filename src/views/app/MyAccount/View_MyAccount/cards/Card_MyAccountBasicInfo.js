@@ -23,7 +23,7 @@ export const CardMyAccountBasicInfo = () => {
         <div className="card-title">
           <div className="d-flex align-items-center">
             <House className="mr-50" size={24} />
-            <h2 className="m-0">Informacje o hodowcy</h2>
+            <h2 className="m-0">Informacje o koncie</h2>
           </div>
         </div>
       </div>

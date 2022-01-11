@@ -53,7 +53,7 @@ export const PigeonsDataTable = () => {
            isDefaultImage,
          }) => {
 
-          const isDefault = isDefaultImage || photoUrl === "https://api.pigener.com/images/default/pigeon.png";
+          const isDefault = isDefaultImage || photoUrl === "https://api.mansard.pl/images/default/pigeon.png";
 
           return (<DataTableItem
             className="data-table-item"

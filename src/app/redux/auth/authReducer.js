@@ -37,7 +37,7 @@ const reducer = (state = initialState(), { type, payload }) => {
 };
 
 const persistConfig = {
-  key: "pigener.auth.userToken",
+  key: "mansard.auth.userToken",
   storage,
   whitelist: ["userToken"],
 };

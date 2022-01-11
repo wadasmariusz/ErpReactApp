@@ -10,7 +10,7 @@ import {CardUserWarehouses} from "./cards/CardUserWarehouses";
 
 const breadcrumbItems = (name) => [
   {label: "Lista użytkowników", url: route["app.users"]},
-  {label: `Użytkownik: ${name ?? ""}`},
+  {label: `Użytkownik ${"firstName"+"lastName" ?? ""}`},
 ];
 
 const ViewUser = () => {

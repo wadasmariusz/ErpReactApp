@@ -5,7 +5,7 @@ import { ActionButtons } from "./components/ActionButtons";
 import { Breadcrumb } from "components/includes/Breadcrumb";
 import { useGetProfile } from "app/crud/app/profile/getProfile";
 
-const breadcrumbItems = [{ label: "Informacje o hodowcy" }];
+const breadcrumbItems = [{ label: "Informacje" }];
 
 const ViewMyAccount = () => {
   const query = useGetProfile();

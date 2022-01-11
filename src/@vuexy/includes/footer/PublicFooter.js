@@ -94,7 +94,7 @@ const PublicFooter = () => {
                     <div className="footer-box">
                       <h4 className="lasthead">Kontakt</h4>
                       <ul className="footer-link">
-                        <li> support@pigener </li>
+                        <li> support@mansard </li>
                         <li> +48 535-077-291 </li>
                       </ul>
                     </div>
@@ -112,7 +112,7 @@ const PublicFooter = () => {
                   >
                     <p className="text">
                       Copyright &copy; 2021. Wszelkie prawa zastrzeżone{" "}
-                      <a href="#">Pigener</a>
+                      <a href="#">Mansard</a>
                     </p>
                   </div>
                 </div>

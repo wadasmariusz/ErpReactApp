@@ -111,17 +111,19 @@ const navigationConfig = (t = () => '') => [
   //   icon: <Award size={20}/>,
   //   navLink: route['app.pigeons'],
   // },
-  {
-    type: "groupHeader",
-    groupTitle: "Konto"
-  },
-  {
-    id: "my-account",
-    title: 'Moje konto',
-    type: "item",
-    icon: <Person size={20}/>,
-    navLink: route['app.myAccount'],
-  },
+
+
+  // {
+  //   type: "groupHeader",
+  //   groupTitle: "Konto"
+  // },
+  // {
+  //   id: "my-account",
+  //   title: 'Moje konto',
+  //   type: "item",
+  //   icon: <Person size={20}/>,
+  //   navLink: route['app.myAccount'],
+  // },
 ]
 
 export default navigationConfig
