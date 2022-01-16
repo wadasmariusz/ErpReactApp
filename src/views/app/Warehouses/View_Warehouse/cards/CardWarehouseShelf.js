@@ -5,12 +5,13 @@ import {useQueryContext} from "../../../../../app/context/data/queries/QueryProv
 import {PlusCircle, Dash, Pen} from "react-bootstrap-icons";
 import {SIZE_INPUT_ICON, SIZE_INPUT_ICON_SM} from "../../../../../app/config/sizes";
 import {CardWarehouseShelfProductsDataTable} from "./CardWarehouseShelfProductsDataTable";
+import {CardWarehouseShelfProductKindsDataTable} from "./CardWarehouseShelfProductKindsDataTable";
 
 const ShelfCard = ({shelf, warehouseId}) => {
   if (!shelf) {
     return "Brak danych";
   }
-  const {id, name, products} = shelf;
+  const {id, name, productKinds, products} = shelf;
   const shelfId = shelf.id;
   return (
     <div className="card">
@@ -26,6 +27,7 @@ const ShelfCard = ({shelf, warehouseId}) => {
         </div>
       </div>
       <div className="card-body">
+          <CardWarehouseShelfProductKindsDataTable productKinds={productKinds}/>
           <CardWarehouseShelfProductsDataTable products={products}/>
       </div>
     </div>

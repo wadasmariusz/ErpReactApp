@@ -77,19 +77,19 @@ export const FormWarehouseRelease = ({defaultWarehouseId, submitText, cancelUrl,
               <div className="col-11">
                 <div className="row">
                   <div className="col-12 pt-25">
+                    <InputWarehouseReleaseProduct
+                      name={`items[${i}].productId`}
+                      warehouseId={warehouseId}
+                    />
+                  </div>
+
+                  <div className="col-12 pt-25">
                     <InputText
                       required
                       name={`items[${i}].quantity`}
                       type="text"
                       icon={<Coin size={SIZE_INPUT_ICON}/>}
                       label="Ilość"
-                    />
-                  </div>
-
-                  <div className="col-12 pt-25">
-                    <InputWarehouseReleaseProduct
-                      name={`items[${i}].productId`}
-                      warehouseId={warehouseId}
                     />
                   </div>
 

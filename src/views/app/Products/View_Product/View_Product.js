@@ -6,10 +6,9 @@ import {useGetSingleProduct} from "app/crud/app/products/getSingle";
 import {QueryProvider} from "app/context/data/queries/QueryProvider";
 import {EditButton} from "components/button/EditButton";
 import {CardProductDetails} from "./cards/CardProductDetails";
-import {CardPigeonParents} from "../../Pigeons/View_Pigeon/cards/CardPigeonParents";
-import {CardPigeonWarehouse} from "../../Pigeons/View_Pigeon/cards/CardPigeonWarehouse";
 import {CardProductKind} from "./cards/CardProductKind";
 import {CardAvailabilityProductsDataTable} from "./cards/CardAvailabilityProductsDataTable";
+import {CardProductCategory} from "./cards/CardProductCategory";
 
 const breadcrumbItems = (name) => [
   {label: "Lista produktów", url: route["app.products"]},
@@ -62,7 +61,7 @@ const ViewProduct = () => {
               </div>
               <div className="card mb-0">
                 <div className="card-body d-flex flex-column">
-                  {/*<CardProductCategory/>*/}
+                  <CardProductCategory/>
                 </div>
               </div>
             </div>

@@ -26,7 +26,7 @@ export const ProductsDataTable = () => {
         <DataTableItem key={id} path={route["app.product"](id)}>
           <div>{code}</div>
           <div>{name}</div>
-          <div className={`text-uppercase ${quantity <= minQuantity ? "text-danger" : ""}`}>{quantity}</div>
+          <div className={`text-uppercase ${quantity <= minQuantity ? "text-danger text-bold-700" : ""}`}>{quantity}</div>
           {/*<div>{truncateText(description, 60)}</div>*/}
         </DataTableItem>
       ))}

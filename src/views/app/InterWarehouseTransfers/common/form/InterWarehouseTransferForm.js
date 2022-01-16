@@ -81,6 +81,14 @@ export const FormInterWarehouseTransfer = ({submitText, cancelUrl, isUpdate}) =>
             <div className="row">
               <div className="col-11">
                 <div className="row">
+
+                  <div className="col-12 pt-25">
+                    <InputWarehouseReleaseProduct
+                      name={`items[${i}].productId`}
+                      warehouseId={sourceWarehouseId}
+                    />
+                  </div>
+
                   <div className="col-12 pt-25">
                     <InputText
                       required
@@ -88,13 +96,6 @@ export const FormInterWarehouseTransfer = ({submitText, cancelUrl, isUpdate}) =>
                       type="text"
                       icon={<Coin size={SIZE_INPUT_ICON}/>}
                       label="Ilość"
-                    />
-                  </div>
-
-                  <div className="col-12 pt-25">
-                    <InputWarehouseReleaseProduct
-                      name={`items[${i}].productId`}
-                      warehouseId={sourceWarehouseId}
                     />
                   </div>
 

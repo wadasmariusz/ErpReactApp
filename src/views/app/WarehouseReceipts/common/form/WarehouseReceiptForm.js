@@ -72,6 +72,13 @@ export const FormWarehouseReceipt = ({defaultWarehouseId, submitText, cancelUrl,
             <div className="row">
               <div className="col-11">
                 <div className="row">
+
+                  <div className="col-12 pt-25">
+                    <InputProduct
+                      name={`items[${i}].productId`}
+                    />
+                  </div>
+
                   <div className="col-12 pt-25">
                     <InputText
                       required
@@ -82,11 +89,6 @@ export const FormWarehouseReceipt = ({defaultWarehouseId, submitText, cancelUrl,
                     />
                   </div>
 
-                  <div className="col-12 pt-25">
-                    <InputProduct
-                      name={`items[${i}].productId`}
-                    />
-                  </div>
                   <div className="col-12 pt-25">
                     <InputShelf
                       name={`items[${i}].shelfId`}

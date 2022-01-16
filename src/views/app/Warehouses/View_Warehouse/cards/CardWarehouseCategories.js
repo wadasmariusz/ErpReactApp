@@ -2,9 +2,9 @@
 import {useQueryContext} from "app/context/data/queries/QueryProvider";
 import {Link} from "react-router-dom"
 import {route} from "app/router/urls/routes";
-import {EditProductCategories} from "../components/modal/EditProductCategories";
+import {EditWarehouseCategories} from "../components/modals/EditWarehouseCategories";
 
-export const CardProductCategory = () => {
+export const CardWarehouseCategories = () => {
   const {data} = useQueryContext();
 
   return (
@@ -13,7 +13,7 @@ export const CardProductCategory = () => {
         <div>
           <h3 className="mb-50">Kategorie:</h3>
           {data?.categories.map(categoryItem => (
-            <Link to={route["app.productCategory"](categoryItem.id)}>
+            <Link to={route["app.warehouseCategory"](categoryItem.id)}>
               <div className="d-flex justify-content-start">
                 <div className="d-flex flex-column">
                   <div className="user-info mb-1">
@@ -27,7 +27,7 @@ export const CardProductCategory = () => {
       ) : (
         <p className={"mb-50"}>Brak przypisanych kategorii</p>
       )}
-      <EditProductCategories/>
+      <EditWarehouseCategories/>
     </>
   )
 }

@@ -12,22 +12,24 @@ const headers = [
 
 export const CardWarehouseShelfProductsDataTable = ({products}) => {
   return (
-    <DataTable header={headers}>
+    <DataTable
+      // header={headers}
+    >
       {!!products?.length &&
         products?.map(
           ({
              id,
              name,
-            quantity
+             quantity,
+             minQuantity
            }) => {
             return (<DataTableItem
               className="data-table-item"
               key={id}
               // path={route["app.shelf"](id)}
             >
-              {/*<div className="text-uppercase">{id}</div>*/}
               <div>{name}</div>
-              <div className="text-uppercase">{quantity}</div>
+              <div className={`text-uppercase ${quantity <= minQuantity ? "text-danger text-bold-700" : ""}`}>{quantity}</div>
             </DataTableItem>)
           }
         )}
