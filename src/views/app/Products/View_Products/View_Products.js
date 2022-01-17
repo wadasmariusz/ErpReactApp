@@ -17,7 +17,7 @@ const breadcrumbItems = [{label: "Lista Produktów"}];
 const ViewProducts = () => {
   const query = useGetProducts();
 
-  const [currentFilters, nextFilters, filterActions] = useProductFilters(query.refetch);
+  const [, nextFilters, filterActions] = useProductFilters();
 
   return (
     <>

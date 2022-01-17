@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {InputTextPure} from "../../../../../components/form/text/Text/Input_Text.pure";
 import {Button, Col, Row} from "reactstrap";
 import {InputProductKindPure} from "../../../../../components/form/predefined/select/enum/InputPure_ProductKind";
@@ -20,6 +20,11 @@ export const ProductsFilterBox = ({
     category,
     kind
   } = filters;
+
+  useEffect(() => {
+    applyFilters();
+  }, [category, kind])
+
   return (
     <>
       <div className="card mt-1">
