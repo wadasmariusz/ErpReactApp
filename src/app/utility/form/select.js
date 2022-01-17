@@ -8,11 +8,6 @@ export const findOption = (value, options) => {
       option = item;
   });
   return option;
-  // return options?.reduce((acc, item) => {
-  //   if (acc) return acc;
-  //   if (item?.options) return findOption(value, item.options);
-  //   return item?.value?.toString() === value ? item : null;
-  // }, /*initial value*/ null) || null /*default value*/;
 }
 
 export const findMultipleOptions = (values, options) => {
@@ -36,19 +31,19 @@ export const customStyles = ({hasPaddingLeft=true, customFontSize='0.96rem'} = {
   }),
   singleValue: (provided) => ({
     ...provided,
-    marginLeft: hasPaddingLeft?'2.3rem':provided?.paddingLeft,
+    marginLeft: hasPaddingLeft?'2.3rem':provided?.paddingLeft ?? '0',
     fontSize: customFontSize,
   }),
   placeholder: (provided, {isFocused}) => ({
     ...provided,
-    paddingLeft: '2.3rem',
+    paddingLeft:  hasPaddingLeft?'2.3rem':provided?.paddingLeft ?? '0',
     fontSize: '0.85rem',
     color: isFocused ? '#000' : 'rgba(34, 41, 47, 0.4)',
     transition: 'all 0.2s ease',
   }),
   input: (provided) => ({
     ...provided,
-    paddingLeft: '2.2rem',
+    paddingLeft:  hasPaddingLeft?'2.3rem':provided?.paddingLeft ?? '0',
   }),
   menu: (provided) => ({
     ...provided,

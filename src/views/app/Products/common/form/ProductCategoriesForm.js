@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import { InputText } from "components/form/text/Text/Input_Text";
-import { Folder, Pen, Tags } from "react-bootstrap-icons";
+import { Tags } from "react-bootstrap-icons";
 import { SIZE_INPUT_ICON } from "app/config/sizes";
 import { InputSubmit } from "components/form/special/Submit/Input_Submit";
 import * as yup from "yup";
@@ -8,7 +8,7 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export const productCategoriesSchema = yup.object().shape({
-  productCategoriesId: yup.number().nullable(),
+  productCategoriesId: yup.array(),
 });
 
 export const FormProductCategories = ({ submitText, cancelUrl }) => {

@@ -4,7 +4,7 @@ import {Controller, useFormContext} from "react-hook-form";
 
 export const InputSelect = ({options, disabled, name, placeholder, label, isLoading, ...props}) => {
 
-  const {control, register, setValue} = useFormContext();
+  const {control} = useFormContext();
 
   return (
     <Controller

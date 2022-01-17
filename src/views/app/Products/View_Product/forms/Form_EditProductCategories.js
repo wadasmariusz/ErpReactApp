@@ -22,8 +22,9 @@ export const FormEditProductCategories = ({
   const methods = useForm({
     defaultValues: {
       ...productCategoriesSchema.default(),
-      ...data,
-      productCategoriesId: data?.categories?.map(c => c.id)
+      productCategoriesId: data?.categories?.map(c => ({
+        value: c.id
+      }))
     },
     resolver: yupResolver(productCategoriesSchema),
   });
