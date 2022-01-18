@@ -13,7 +13,7 @@ export const CardWarehouseCategories = () => {
         <div>
           <h3 className="mb-50">Kategorie:</h3>
           {data?.categories.map(categoryItem => (
-            <Link to={route["app.warehouseCategory"](categoryItem.id)}>
+            <Link to={route["app.productCategory"](categoryItem.id)}>
               <div className="d-flex justify-content-start">
                 <div className="d-flex flex-column">
                   <div className="user-info mb-1">
