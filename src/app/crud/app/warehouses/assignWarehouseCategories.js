@@ -6,6 +6,6 @@ export const assignWarehouseCategories = (warehouseId) => (data) => axios({
   url: `${BASE_URL_API}/v1/warehouses/${warehouseId}/categories`,
   data:{
     ...data,
-    categoriesId: data?.categoriesId.map(({value}) => value)
+    productCategoriesId: data?.productCategoriesId.map(({value}) => value)
   },
 });

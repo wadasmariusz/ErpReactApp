@@ -8,7 +8,7 @@ import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export const warehouseCategoriesSchema = yup.object().shape({
-  warehouseCategoriesId: yup.number().nullable(),
+  warehouseCategoriesId: yup.array(),
 });
 
 export const FormWarehouseCategories = ({ submitText, cancelUrl }) => {
@@ -16,7 +16,7 @@ export const FormWarehouseCategories = ({ submitText, cancelUrl }) => {
     <div className="row">
       <div className="col-12 pt-25">
         <InputText
-          name="warehouseCategoriesId"
+          name="productCategoriesId"
           icon={<Tags size={SIZE_INPUT_ICON} />}
           label="Rodzaj"
         />

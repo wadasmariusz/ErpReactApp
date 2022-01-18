@@ -11,7 +11,7 @@ export const InputWarehouseCategories = (props) => {
       options={options}
       disabled={isLoading}
       isLoading={isFetching}
-      name="categoriesId"
+      name="productCategoriesId"
       label="Kategorie"
       {...props}
     />
