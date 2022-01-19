@@ -26,10 +26,10 @@ const ViewOrder = () => {
   return (
     <>
       <QueryProvider {...query}>
-        <Breadcrumb items={breadcrumbItems(query?.data?.orderNumber)}>
+        <Breadcrumb items={breadcrumbItems(query?.data?.id)}>
           {/*{query?.data?.status === 1 && <CanceledOrder/> }*/}
           {/*{query?.data?.status === 1 && query?.data?.items?.length > 0 && <ConfirmOrder/> }*/}
-          {query?.data?.status === 1 && <EditButton url={route["app.order.edit"](orderId)}/> }
+          {<EditButton url={route["app.order.edit"](orderId)}/> }
         </Breadcrumb>
         <div className="container pt-1">
           <div className="row">

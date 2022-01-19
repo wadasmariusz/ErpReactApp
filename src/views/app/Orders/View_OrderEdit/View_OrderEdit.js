@@ -7,8 +7,8 @@ import {QueryProvider} from "app/context/data/queries/QueryProvider";
 import {FormEditOrder} from "views/app/Orders/View_OrderEdit/form/Form_EditOrder";
 
 const breadcrumbItems = [
-  {label: 'Lista przyjęć magazynowych', url: route['app.orders']},
-  {label: 'Edycja PM'}
+  {label: 'Lista zamówień', url: route['app.orders']},
+  {label: 'Edycja '}
 ];
 
 const ViewOrderEdit = () => {
@@ -24,7 +24,7 @@ const ViewOrderEdit = () => {
           <div className="col-12 col-lg-10 offset-lg-1">
             <div className="card">
               <div className="card-header">
-                <h4 className="card-title">Edytuj PM</h4>
+                <h4 className="card-title">Edytuj </h4>
               </div>
               <div className="card-body">
                 <QueryProvider {...query}>
