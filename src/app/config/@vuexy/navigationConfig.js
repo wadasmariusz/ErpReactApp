@@ -8,7 +8,7 @@ import {
   CurrencyDollar,
   House, Inboxes, PeopleFill, CollectionFill,
   Person,
-  Speedometer2, Bank
+  Speedometer2, Bank, BorderWidth, Basket3Fill, Basket
 } from "react-bootstrap-icons";
 import {route} from "app/router/urls/routes";
 
@@ -85,6 +85,21 @@ const navigationConfig = (t = () => '') => [
     icon: <ArrowLeftRight size={20}/>,
     navLink: route['app.interWarehouseTransfers'],
   },
+
+  {
+    type: "groupHeader",
+    groupTitle: "Panel obsługi"
+  },
+
+  {
+    id: "orders",
+    title: 'Zamówienia',
+    type: "item",
+    icon: <Basket size={20}/>,
+    navLink: route['app.orders'],
+  },
+
+
   {
     type: "groupHeader",
     groupTitle: "Dane systemowe"
