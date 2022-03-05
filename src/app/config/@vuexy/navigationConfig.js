@@ -1,14 +1,7 @@
 import React from "react"
 import {
-  ArrowDownSquareFill, ArrowDownUp, ArrowLeftRight, ArrowLeftSquareFill, ArrowRightSquareFill,
-  ArrowUp,
-  ArrowUpSquareFill,
-  Award,
-  Box, BoxArrowInLeft, BoxArrowRight,
-  CurrencyDollar,
-  House, Inboxes, PeopleFill, CollectionFill,
-  Person,
-  Speedometer2, Bank, BorderWidth, Basket3Fill, Basket
+  ArrowLeftRight, Box, BoxArrowInLeft, BoxArrowRight, Inboxes, PeopleFill,
+  CollectionFill, Speedometer2, Bank, Basket, Circle
 } from "react-bootstrap-icons";
 import {route} from "app/router/urls/routes";
 
@@ -46,6 +39,13 @@ const navigationConfig = (t = () => '') => [
     navLink: route['app.products'],
   },
   {
+    id: "coil",
+    title: 'Kręgi',
+    type: "item",
+    icon: <Circle size={20}/>,
+    navLink: route['app.coils'],
+  },
+  {
     id: "productKind",
     title: 'Rodzaje',
     type: "item",
@@ -62,7 +62,7 @@ const navigationConfig = (t = () => '') => [
 
   {
     type: "groupHeader",
-    groupTitle: "Akcja"
+    groupTitle: "Zewnętrzne"
   },
   {
     id: "warehouseReceipts",
@@ -78,6 +78,26 @@ const navigationConfig = (t = () => '') => [
     icon: <BoxArrowRight size={20}/>,
     navLink: route['app.warehouseReleases'],
   },
+
+  {
+    type: "groupHeader",
+    groupTitle: "Wewnętrzne"
+  },
+  {
+    id: "interWarehouseReceipts",
+    title: 'Przyjęcia magazynowe',
+    type: "item",
+    icon: <BoxArrowInLeft size={20}/>,
+    navLink: route['app.interWarehouseReceipts'],
+  },
+  {
+    id: "interWarehouseReleases",
+    title: 'Wydania magazynowe',
+    type: "item",
+    icon: <BoxArrowRight size={20}/>,
+    navLink: route['app.interWarehouseReleases'],
+  },
+
   {
     id: "interWarehouseTransfers",
     title: 'Przesunięcia magazynowe',

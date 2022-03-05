@@ -8,10 +8,13 @@ const ViewDashboard = React.lazy(() => import("views/app/Dashboard/View_Dashboar
 const RoutesPigeons = React.lazy(() => import("views/app/Pigeons/@Routes/Routes_Pigeons"),);
 const RoutesWarehouses = React.lazy(() => import("views/app/Warehouses/@Routes/Routes_Warehouses"),);
 const RoutesWarehouseReleases = React.lazy(() => import("views/app/WarehouseReleases/@Routes/Routes_WarehouseReleases"),);
+const RoutesInterWarehouseReleases = React.lazy(() => import("views/app/InterWarehouseReleases/@Routes/Routes_InterWarehouseReleases"),);
 const RoutesInterWarehouseTransfers = React.lazy(() => import("views/app/InterWarehouseTransfers/@Routes/Routes_InterWarehouseTransfers"),);
 const RoutesWarehouseReceipts = React.lazy(() => import("views/app/WarehouseReceipts/@Routes/Routes_WarehouseReceipts"),);
+const RoutesInterWarehouseReceipts = React.lazy(() => import("views/app/InterWarehouseReceipts/@Routes/Routes_InterWarehouseReceipts"),);
 const RoutesOrders = React.lazy(() => import("views/app/Orders/@Routes/Routes_Orders"),);
 const RoutesProducts = React.lazy(() => import("views/app/Products/@Routes/Routes_Products"),);
+const RoutesCoils = React.lazy(() => import("views/app/Coils/@Routes/Routes_Coils"),);
 const RoutesUsers = React.lazy(() => import("views/app/Users/@Routes/Routes_Users"),);
 const RoutesProductKinds = React.lazy(() => import("views/app/ProductKinds/@Routes/Routes_ProductKinds"),);
 const RoutesProductCategories = React.lazy(() => import("views/app/ProductCategories/@Routes/Routes_ProductCategories"),);
@@ -35,6 +38,10 @@ export const RoutesApp = () => {
       <RootRoute
         path={route["app.products"]}
         component={RoutesProducts}
+      />
+      <RootRoute
+        path={route["app.coils"]}
+        component={RoutesCoils}
       />
       <RootRoute
         path={route["app.productKinds"]}
@@ -61,12 +68,20 @@ export const RoutesApp = () => {
         component={RoutesWarehouseReceipts}
       />
       <RootRoute
+        path={route["app.interWarehouseReceipts"]}
+        component={RoutesInterWarehouseReceipts}
+      />
+      <RootRoute
         path={route["app.orders"]}
         component={RoutesOrders}
       />
       <RootRoute
         path={route["app.warehouseReleases"]}
         component={RoutesWarehouseReleases}
+      />
+      <RootRoute
+        path={route["app.interWarehouseReleases"]}
+        component={RoutesInterWarehouseReleases}
       />
 
       <RootRoute
