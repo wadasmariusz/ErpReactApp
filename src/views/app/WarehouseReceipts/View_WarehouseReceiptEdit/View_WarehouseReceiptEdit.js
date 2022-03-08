@@ -7,8 +7,8 @@ import {QueryProvider} from "app/context/data/queries/QueryProvider";
 import {FormEditWarehouseReceipt} from "views/app/WarehouseReceipts/View_WarehouseReceiptEdit/form/Form_EditWarehouseReceipt";
 
 const breadcrumbItems = [
-  {label: 'Lista przyjęć magazynowych', url: route['app.warehouseReceipts']},
-  {label: 'Edycja PM'}
+  {label: 'Lista przyjęć zewnętrznych', url: route['app.warehouseReceipts']},
+  {label: 'Edycja PZ'}
 ];
 
 const ViewWarehouseReceiptEdit = () => {
@@ -24,7 +24,7 @@ const ViewWarehouseReceiptEdit = () => {
           <div className="col-12 col-lg-10 offset-lg-1">
             <div className="card">
               <div className="card-header">
-                <h4 className="card-title">Edytuj PM</h4>
+                <h4 className="card-title">Edytuj PZ</h4>
               </div>
               <div className="card-body">
                 <QueryProvider {...query}>

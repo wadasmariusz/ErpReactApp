@@ -17,7 +17,7 @@ export const CanceledInterWarehouseRelease = ({...props}) => {
       </div>
       <Modal isOpen={isOpen} toggle={close} size="lg">
         <ModalHeader toggle={close}>
-          Anuluj WM
+          Anuluj RW
         </ModalHeader>
         <ModalBody>
           <FormCanceledInterWarehouseRelease closeModal={close}/>

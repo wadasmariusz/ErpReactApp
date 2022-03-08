@@ -33,7 +33,8 @@ export const CardAvailabilityProductsDataTable = () => {
               {/*<div className="text-uppercase">{id}</div>*/}
               <div>{warehouse.name}</div>
               <div>{shelf.name}</div>
-              <div className="text-uppercase">{quantity}</div>
+              {/*<div className="text-uppercase">{quantity} [kg]</div>*/}
+              <div>{quantity} Kg</div>
             </DataTableItem>)
           }
         )}

@@ -17,7 +17,7 @@ export const ConfirmInterWarehouseRelease = ({...props}) => {
       </div>
       <Modal isOpen={isOpen} toggle={close} size="lg">
         <ModalHeader toggle={close}>
-          Potwierdź WM
+          Potwierdź RW
         </ModalHeader>
         <ModalBody>
           <FormConfirmInterWarehouseRelease closeModal={close}/>

@@ -17,7 +17,7 @@ export const ConfirmWarehouseReceipt = ({...props}) => {
       </div>
       <Modal isOpen={isOpen} toggle={close} size="lg">
         <ModalHeader toggle={close}>
-          Potwierdź PM
+          Potwierdź PZ
         </ModalHeader>
         <ModalBody>
           <FormConfirmWarehouseReceipt closeModal={close}/>

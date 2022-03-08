@@ -7,8 +7,8 @@ import {QueryProvider} from "app/context/data/queries/QueryProvider";
 import {FormEditInterWarehouseTransfer} from "views/app/InterWarehouseTransfers/View_InterWarehouseTransferEdit/form/Form_EditInterWarehouseTransfer";
 
 const breadcrumbItems = [
-  {label: 'Lista przesunięć magazynowych', url: route['app.interWarehouseTransfers']},
-  {label: 'Edycja PM'}
+  {label: 'Lista przesunięć międzymagazynowych', url: route['app.interWarehouseTransfers']},
+  {label: 'Edycja MM'}
 ];
 
 const ViewInterWarehouseTransferEdit = () => {
@@ -24,7 +24,7 @@ const ViewInterWarehouseTransferEdit = () => {
           <div className="col-12 col-lg-10 offset-lg-1">
             <div className="card">
               <div className="card-header">
-                <h4 className="card-title">Edytuj przesuniecie magazynowe</h4>
+                <h4 className="card-title">Edytuj przesuniecie międzymagazynowe</h4>
               </div>
               <div className="card-body">
                 <QueryProvider {...query}>

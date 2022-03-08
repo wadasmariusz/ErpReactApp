@@ -11,8 +11,8 @@ import {HookFormError} from "components/form/helpers/HookFormError";
 import {useParams} from "react-router-dom";
 
 const breadcrumbItems = [
-  { label: "Lista wydań magazynowych", url: route["app.warehouseReleases"] },
-  { label: "Dodaj WM" },
+  { label: "Lista wydań zewnętrznych", url: route["app.warehouseReleases"] },
+  { label: "Dodaj WZ" },
 ];
 
 const ViewWarehouseReleaseAdd = () => {
@@ -41,7 +41,7 @@ const ViewWarehouseReleaseAdd = () => {
           <div className="col-12 col-lg-10 offset-lg-1">
             <div className="card">
               <div className="card-header">
-                <h4>Dodaj wydanie magazynowe</h4>
+                <h4>Dodaj wydanie zewnętrzne</h4>
               </div>
               <div className="card-body">
                 <FormProvider {...methods}>

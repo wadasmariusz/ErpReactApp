@@ -24,7 +24,7 @@ export const CardWarehouseReceiptDetails = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle tag={"h4"}>PM-{data?.id}</CardTitle>
+        <CardTitle tag={"h4"}>PZ-{data?.id}</CardTitle>
       </CardHeader>
       <CardBody>
         <BigLine>Magazyn: <b>{data?.warehouse?.name}</b></BigLine>

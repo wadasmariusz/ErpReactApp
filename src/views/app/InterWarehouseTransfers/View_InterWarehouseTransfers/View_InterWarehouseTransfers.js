@@ -10,7 +10,7 @@ import {useGetInterWarehouseTransfers} from "app/crud/app/interWarehouseTransfer
 import {InterWarehouseTransfersDataTable} from "./dataTable/DataTable_InterWarehouseTransfers";
 import {AddButton} from "components/button/AddButton";
 
-const breadcrumbItems = [{label: "Lista przesunięć magazynowych"}];
+const breadcrumbItems = [{label: "Lista przesunięć międzymagazynowych"}];
 
 const ViewInterWarehouseTransfers = () => {
   const query = useGetInterWarehouseTransfers();
@@ -23,7 +23,7 @@ const ViewInterWarehouseTransfers = () => {
         <QueryProvider {...query} withDefaultPagination>
           <div className="card p-1">
             <QueryHasNoResults>
-              <NoResultsWithAddBtn text="Nie znaleziono żadnych przesunięć magazynowych"/>
+              <NoResultsWithAddBtn text="Nie znaleziono żadnych przesunięć międzymagazynowych"/>
             </QueryHasNoResults>
             <QueryHasResults>
               <InterWarehouseTransfersDataTable/>

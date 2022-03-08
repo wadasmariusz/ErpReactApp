@@ -14,7 +14,13 @@ export const CardCoilDetails = () => {
         <div>Kod: {data?.code}</div>
         <div>Minimalna ilość: {data?.minQuantity}</div>
         <div>Opis: {data?.description}</div>
+      </CardBody>
 
+        <CardHeader>
+          <CardTitle tag={"h2"}>Szczegóły:</CardTitle>
+        </CardHeader>
+
+      <CardBody>
         <div>Szerokość: {data?.coil?.width}</div>
         <div>Grubość: {data?.coil?.thickness}</div>
         <div>Ilośc cynku: {data?.coil?.amountOfZinc}</div>

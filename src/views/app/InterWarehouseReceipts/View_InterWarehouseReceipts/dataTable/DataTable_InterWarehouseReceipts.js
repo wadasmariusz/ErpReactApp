@@ -30,7 +30,7 @@ export const InterWarehouseReceiptsDataTable = () => {
     <DataTable header={headers}>
       {!!data?.length && data?.map(({ id, warehouse, status, createdAt, createdByUser }) => (
         <DataTableItem key={id} path={route["app.interWarehouseReceipt"](id)}>
-          <div>PM-{id}</div>
+          <div>PW-{id}</div>
           <div>{warehouse?.name}</div>
           <div>{mapDocumentStatusToBadge(status)}</div>
           <div>{dayjs(createdAt).format("DD-MM-YYYY HH:mm")}</div>

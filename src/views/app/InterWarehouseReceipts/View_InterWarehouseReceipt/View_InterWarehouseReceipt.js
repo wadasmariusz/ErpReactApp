@@ -14,8 +14,8 @@ import {CanceledInterWarehouseReceipt} from "./components/modals/CanceledInterWa
 // import {AddInterWarehouseReceiptShelves} from "./components/modals/AddInterWarehouseReceiptShelves";
 
 const breadcrumbItems = (id) => [
-  {label: "Lista przyjęć magazynowych", url: route["app.interWarehouseReceipts"]},
-  {label: `PM-${id ?? ""}`},
+  {label: "Lista przyjęć wewnętrznych", url: route["app.interWarehouseReceipts"]},
+  {label: `PW-${id ?? ""}`},
 ];
 
 const ViewInterWarehouseReceipt = () => {

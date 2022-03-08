@@ -4,6 +4,7 @@ import {publicRoutes} from "app/router/urls/common/publicRoutes";
 import {pigeonsRoutes} from "app/router/urls/app/pigeons/pigeons";
 import {warehousesRoutes} from "app/router/urls/app/warehouses/warehouses";
 import {warehouseReceiptsRoutes} from "app/router/urls/app/warehouseReceipts/warehouseReceipts";
+import {productionSheetsRoutes} from "app/router/urls/app/productionSheets/productionSheets";
 import {interWarehouseReceiptsRoutes} from "app/router/urls/app/interWarehouseReceipts/interWarehouseReceipts";
 import {ordersRoutes} from "app/router/urls/app/orders/orders";
 import {interWarehouseTransfersRoutes} from "app/router/urls/app/interWarehouseTransfers/interWarehouseTransfers";
@@ -32,6 +33,7 @@ export const route = {
   ...productCategoriesRoutes,
   ...warehousesRoutes,
   ...warehouseReceiptsRoutes,
+  ...productionSheetsRoutes,
   ...interWarehouseReceiptsRoutes,
   ...ordersRoutes,
   ...interWarehouseTransfersRoutes,

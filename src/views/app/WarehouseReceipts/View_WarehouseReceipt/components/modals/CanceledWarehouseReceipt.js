@@ -17,7 +17,7 @@ export const CanceledWarehouseReceipt = ({...props}) => {
       </div>
       <Modal isOpen={isOpen} toggle={close} size="lg">
         <ModalHeader toggle={close}>
-          Anuluj PM
+          Anuluj PZ
         </ModalHeader>
         <ModalBody>
           <FormCanceledWarehouseReceipt closeModal={close}/>

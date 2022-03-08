@@ -31,7 +31,7 @@ export const InterWarehouseTransfersDataTable = () => {
     <DataTable header={headers}>
       {!!data?.length && data?.map(({ id,sourceWarehouse,destinationWarehouse, status, createdAt, createdByUser }) => (
         <DataTableItem key={id} path={route["app.interWarehouseTransfer"](id)}>
-          <div>PM-{id}</div>
+          <div>MM-{id}</div>
           <div>{sourceWarehouse?.name}</div>
           <div>{destinationWarehouse?.name}</div>
           <div>{mapDocumentStatusToBadge(status)}</div>

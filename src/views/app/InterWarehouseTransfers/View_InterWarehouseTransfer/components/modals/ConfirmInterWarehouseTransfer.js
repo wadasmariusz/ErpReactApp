@@ -17,7 +17,7 @@ export const ConfirmInterWarehouseTransfer = ({...props}) => {
       </div>
       <Modal isOpen={isOpen} toggle={close} size="lg">
         <ModalHeader toggle={close}>
-          Potwierdź PM
+          Potwierdź MM
         </ModalHeader>
         <ModalBody>
           <FormConfirmInterWarehouseTransfer closeModal={close}/>

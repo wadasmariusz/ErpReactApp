@@ -11,8 +11,8 @@ import {useHookFormMutation} from "app/hooks/crud/useHookFormMutation";
 import {HookFormError} from "components/form/helpers/HookFormError";
 
 const breadcrumbItems = [
-  { label: "Lista przesunięć magazynowych", url: route["app.interWarehouseTransfers"] },
-  { label: "Dodaj PM" },
+  { label: "Lista przesunięć międzymagazynowych", url: route["app.interWarehouseTransfers"] },
+  { label: "Dodaj MM" },
 ];
 
 const ViewInterWarehouseTransferAdd = () => {
@@ -40,7 +40,7 @@ const ViewInterWarehouseTransferAdd = () => {
           <div className="col-12 col-lg-10 offset-lg-1">
             <div className="card">
               <div className="card-header">
-                <h4>Dodaj przesuniecie magazynowe</h4>
+                <h4>Dodaj przesunięcie międzymagazynowe</h4>
               </div>
               <div className="card-body">
                 <FormProvider {...methods}>

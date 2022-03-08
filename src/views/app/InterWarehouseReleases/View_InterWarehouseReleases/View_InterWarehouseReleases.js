@@ -10,7 +10,7 @@ import {useGetInterWarehouseReleases} from "app/crud/app/interWarehouseReleases/
 import {InterWarehouseReleasesDataTable} from "./dataTable/DataTable_InterWarehouseReleases";
 import {AddButton} from "components/button/AddButton";
 
-const breadcrumbItems = [{label: "Lista wydań magazynowych"}];
+const breadcrumbItems = [{label: "Lista rozchodów wewnętrznych"}];
 
 const ViewInterWarehouseReleases = () => {
   const query = useGetInterWarehouseReleases();
@@ -23,7 +23,7 @@ const ViewInterWarehouseReleases = () => {
         <QueryProvider {...query} withDefaultPagination>
           <div className="card p-1">
             <QueryHasNoResults>
-              <NoResultsWithAddBtn text="Nie znaleziono żadnych wydań magazynowych"/>
+              <NoResultsWithAddBtn text="Nie znaleziono żadnych rozchodów wewnętrznych"/>
             </QueryHasNoResults>
             <QueryHasResults>
               <InterWarehouseReleasesDataTable/>

@@ -15,8 +15,8 @@ import {CanceledInterWarehouseRelease} from "./components/modals/CanceledInterWa
 // import {AddInterWarehouseReleaseShelves} from "./components/modals/AddInterWarehouseReleaseShelves";
 
 const breadcrumbItems = (id) => [
-  {label: "Lista wydań magazynowych", url: route["app.interWarehouseReleases"]},
-  {label: `WM-${id ?? ""}`},
+  {label: "Lista rozchodów wewnętrznych", url: route["app.interWarehouseReleases"]},
+  {label: `RW-${id ?? ""}`},
 ];
 
 const ViewInterWarehouseRelease = () => {

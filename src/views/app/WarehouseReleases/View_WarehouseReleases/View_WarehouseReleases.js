@@ -10,7 +10,7 @@ import {useGetWarehouseReleases} from "app/crud/app/warehouseReleases/getList";
 import {WarehouseReleasesDataTable} from "./dataTable/DataTable_WarehouseReleases";
 import {AddButton} from "components/button/AddButton";
 
-const breadcrumbItems = [{label: "Lista wydań magazynowych"}];
+const breadcrumbItems = [{label: "Lista wydań zewnętrznych"}];
 
 const ViewWarehouseReleases = () => {
   const query = useGetWarehouseReleases();
@@ -23,7 +23,7 @@ const ViewWarehouseReleases = () => {
         <QueryProvider {...query} withDefaultPagination>
           <div className="card p-1">
             <QueryHasNoResults>
-              <NoResultsWithAddBtn text="Nie znaleziono żadnych wydań magazynowych"/>
+              <NoResultsWithAddBtn text="Nie znaleziono żadnych wydań zewnętrznych"/>
             </QueryHasNoResults>
             <QueryHasResults>
               <WarehouseReleasesDataTable/>

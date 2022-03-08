@@ -14,8 +14,8 @@ import {CanceledWarehouseReceipt} from "./components/modals/CanceledWarehouseRec
 // import {AddWarehouseReceiptShelves} from "./components/modals/AddWarehouseReceiptShelves";
 
 const breadcrumbItems = (id) => [
-  {label: "Lista przyjęć magazynowych", url: route["app.warehouseReceipts"]},
-  {label: `PM-${id ?? ""}`},
+  {label: "Lista przyjęć zewnętrznych", url: route["app.warehouseReceipts"]},
+  {label: `PZ-${id ?? ""}`},
 ];
 
 const ViewWarehouseReceipt = () => {

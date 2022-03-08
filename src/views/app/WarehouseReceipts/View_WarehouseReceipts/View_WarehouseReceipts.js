@@ -10,7 +10,7 @@ import {useGetWarehouseReceipts} from "app/crud/app/warehouseReceipts/getList";
 import {WarehouseReceiptsDataTable} from "./dataTable/DataTable_WarehouseReceipts";
 import {AddButton} from "components/button/AddButton";
 
-const breadcrumbItems = [{label: "Lista przyjęć magazynowych"}];
+const breadcrumbItems = [{label: "Lista przyjęć zewnętrznych"}];
 
 const ViewWarehouseReceipts = () => {
   const query = useGetWarehouseReceipts();
@@ -23,7 +23,7 @@ const ViewWarehouseReceipts = () => {
         <QueryProvider {...query} withDefaultPagination>
           <div className="card p-1">
             <QueryHasNoResults>
-              <NoResultsWithAddBtn text="Nie znaleziono żadnych przyjęć magazynowych"/>
+              <NoResultsWithAddBtn text="Nie znaleziono żadnych przyjęć zewnętrznych"/>
             </QueryHasNoResults>
             <QueryHasResults>
               <WarehouseReceiptsDataTable/>

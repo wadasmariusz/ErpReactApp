@@ -10,7 +10,7 @@ import {useGetInterWarehouseReceipts} from "app/crud/app/interWarehouseReceipts/
 import {InterWarehouseReceiptsDataTable} from "./dataTable/DataTable_InterWarehouseReceipts";
 import {AddButton} from "components/button/AddButton";
 
-const breadcrumbItems = [{label: "Lista przyjęć magazynowych"}];
+const breadcrumbItems = [{label: "Lista przyjęć wewnętrznych"}];
 
 const ViewInterWarehouseReceipts = () => {
   const query = useGetInterWarehouseReceipts();
@@ -23,7 +23,7 @@ const ViewInterWarehouseReceipts = () => {
         <QueryProvider {...query} withDefaultPagination>
           <div className="card p-1">
             <QueryHasNoResults>
-              <NoResultsWithAddBtn text="Nie znaleziono żadnych przyjęć magazynowych"/>
+              <NoResultsWithAddBtn text="Nie znaleziono żadnych przyjęć wewnętrznych"/>
             </QueryHasNoResults>
             <QueryHasResults>
               <InterWarehouseReceiptsDataTable/>

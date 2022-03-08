@@ -15,8 +15,8 @@ import {CanceledInterWarehouseTransfer} from "./components/modals/CanceledInterW
 // import {AddInterWarehouseTransferShelves} from "./components/modals/AddInterWarehouseTransferShelves";
 
 const breadcrumbItems = (id) => [
-  {label: "Lista przyjęć magazynowych", url: route["app.interWarehouseTransfers"]},
-  {label: `PM-${id ?? ""}`},
+  {label: "Lista przyjęć międzymagazynowych", url: route["app.interWarehouseTransfers"]},
+  {label: `MM-${id ?? ""}`},
 ];
 
 const ViewInterWarehouseTransfer = () => {

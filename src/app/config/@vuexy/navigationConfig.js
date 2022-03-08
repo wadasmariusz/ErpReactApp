@@ -1,7 +1,22 @@
 import React from "react"
 import {
-  ArrowLeftRight, Box, BoxArrowInLeft, BoxArrowRight, Inboxes, PeopleFill,
-  CollectionFill, Speedometer2, Bank, Basket, Circle
+  ArrowLeftRight,
+  Box,
+  BoxArrowInLeft,
+  BoxArrowRight,
+  Inboxes,
+  PeopleFill,
+  CollectionFill,
+  Speedometer2,
+  Bank,
+  Basket,
+  Circle,
+  Wrench,
+  Palette,
+  Palette2,
+  PaletteFill,
+  ArrowBarLeft,
+  ArrowLeftCircle, ArrowRightCircle
 } from "react-bootstrap-icons";
 import {route} from "app/router/urls/routes";
 
@@ -62,18 +77,32 @@ const navigationConfig = (t = () => '') => [
 
   {
     type: "groupHeader",
+    groupTitle: "Produkcja"
+  },
+
+  {
+    id: "productionSheets",
+    title: 'Cięcie kregów',
+    type: "item",
+    icon: <Palette2 size={20}/>,
+    navLink: route['app.productionSheets'],
+  },
+
+
+  {
+    type: "groupHeader",
     groupTitle: "Zewnętrzne"
   },
   {
     id: "warehouseReceipts",
-    title: 'Przyjęcia magazynowe',
+    title: 'Przyjęcia zewnętrzne',
     type: "item",
     icon: <BoxArrowInLeft size={20}/>,
     navLink: route['app.warehouseReceipts'],
   },
   {
     id: "warehouseReleases",
-    title: 'Wydania magazynowe',
+    title: 'Wydania zewnętrzne',
     type: "item",
     icon: <BoxArrowRight size={20}/>,
     navLink: route['app.warehouseReleases'],
@@ -85,22 +114,22 @@ const navigationConfig = (t = () => '') => [
   },
   {
     id: "interWarehouseReceipts",
-    title: 'Przyjęcia magazynowe',
+    title: 'Przyjęcia wewnętrzne',
     type: "item",
-    icon: <BoxArrowInLeft size={20}/>,
+    icon: <ArrowLeftCircle size={20}/>,
     navLink: route['app.interWarehouseReceipts'],
   },
   {
     id: "interWarehouseReleases",
-    title: 'Wydania magazynowe',
+    title: 'Rozchód wewnętrzny',
     type: "item",
-    icon: <BoxArrowRight size={20}/>,
+    icon: <ArrowRightCircle size={20}/>,
     navLink: route['app.interWarehouseReleases'],
   },
 
   {
     id: "interWarehouseTransfers",
-    title: 'Przesunięcia magazynowe',
+    title: 'Przesunięcia wewnętrzne',
     type: "item",
     icon: <ArrowLeftRight size={20}/>,
     navLink: route['app.interWarehouseTransfers'],

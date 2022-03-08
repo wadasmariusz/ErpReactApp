@@ -24,7 +24,7 @@ export const CardInterWarehouseTransferDetails = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle tag={"h4"}>PM-{data?.id}</CardTitle>
+        <CardTitle tag={"h4"}>MM-{data?.id}</CardTitle>
       </CardHeader>
       <CardBody>
         <BigLine>Magazyn zródłowy: <b>{data?.sourceWarehouse?.name}</b></BigLine>

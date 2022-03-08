@@ -9,7 +9,7 @@ import { truncateText } from "app/utility/truncateText";
 const headers = [
   ["Kod", 1],
   ["Nazwa", 5],
-  ["Ilość [kg]", 1]
+  ["Ilość", 1]
 ];
 
 const ItemWrapper = styled.div`
@@ -26,7 +26,8 @@ export const CoilsDataTable = () => {
         <DataTableItem key={id} path={route["app.coil"](id)}>
           <div>{code}</div>
           <div>{name}</div>
-          <div className={`text-uppercase ${quantity <= minQuantity ? "text-danger text-bold-700" : ""}`}>{quantity}</div>
+          <div className={` ${quantity <= minQuantity ? "text-danger text-bold-700" : ""}`}>{quantity} Kg</div>
+          {/*po huj tu w 29 "text-uppercase"*/}
           {/*<div>{truncateText(description, 60)}</div>*/}
         </DataTableItem>
       ))}
