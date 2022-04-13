@@ -21,6 +21,7 @@ export const FormEditProductionSheet = () => {
       ...productionSheetSchema.default(),
       ...data,
       type: data?.type?.id,
+      coilId: data?.coil?.id
     },
     resolver: yupResolver(productionSheetSchema),
   });

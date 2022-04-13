@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import {InputText} from "components/form/text/Text/Input_Text";
-import {Arrow90degDown, ArrowRight, ArrowsExpand, ArrowUp, Coin, Line, TrashFill} from "react-bootstrap-icons";
+import {ArrowRight, ArrowUp, Coin, TrashFill} from "react-bootstrap-icons";
 import {SIZE_INPUT_ICON, SIZE_INPUT_ICON_SM} from "app/config/sizes";
 import {InputSubmit} from "components/form/special/Submit/Input_Submit";
 import * as yup from "yup";
@@ -8,17 +8,21 @@ import {Button} from "reactstrap";
 import {Link} from "react-router-dom";
 import {InputWarehouse} from "../../../../../components/form/predefined/select/enum/Input_Warehouse";
 import styled from "styled-components";
-import {InputProduct} from "../../../../../components/form/predefined/select/enum/Input_Product";
 import {InputShelf} from "../../../../../components/form/predefined/select/enum/Input_Shelf";
 import {useFieldArray, useFormContext} from "react-hook-form";
 import {InputSelectedWarehouse} from "../../../../../components/form/predefined/select/enum/InputSelectedWarehouse";
-import {ArrowFunctionExpression, IntersectionTypeAnnotation} from "@babel/types";
-import {InputDestinationShelf} from "../../../../../components/form/predefined/select/enum/Input_DestinationShelf";
+import {InputCoil} from "../../../../../components/form/predefined/select/enum/Input_Coil";
 
 export const productionSheetSchema = yup.object().shape({
-  warehouseId: yup.string().required(),
-  items: yup.array().of(
-    yup.object().shape({width: yup.string().required(), quantity: yup.string().required(), length: yup.string().required()})
+  destinationWarehouseId: yup.number().required(),
+  destinationShelfId: yup.number().required(),
+  coilId: yup.number().required(),
+  sheets: yup.array().of(
+    yup.object().shape({
+      width: yup.string().required(),
+      quantity: yup.string().required(),
+      length: yup.string().required()
+    })
   )
 });
 
@@ -28,13 +32,12 @@ const ColoredLine = styled.div`
 `;
 
 
-export const FormProductionSheet = ({defaultWarehouseId, defaultShelfId, submitText, cancelUrl, isUpdate}) => {
-  const [inputList, setInputList] = useState([{width: "", quantity: "", length: ""}]);
-  const {control, setValue, watch, register} = useFormContext();
-  const {destinationWarehouseId = defaultWarehouseId, destinationShelfId = defaultShelfId, items} = watch();
+export const FormProductionSheet = ({defaultWarehouseId, submitText, cancelUrl, isUpdate}) => {
+  const {control, watch} = useFormContext();
+  const {destinationWarehouseId = defaultWarehouseId} = watch();
   const {fields, append, remove} = useFieldArray({
     control,
-    name: "items"
+    name: "sheets"
   });
 
   const handleAppend = () => {
@@ -54,27 +57,30 @@ export const FormProductionSheet = ({defaultWarehouseId, defaultShelfId, submitT
   return (
     <div className="row">
       <div className="col-12 pt-25">
-        { defaultWarehouseId != null ?
+        {defaultWarehouseId != null ?
           (<InputSelectedWarehouse
-            value = {defaultWarehouseId}
-            disabled= {true}
+            value={defaultWarehouseId}
+            disabled={true}
           />) :
           (<InputWarehouse
+            name={'destinationWarehouseId'}
             disabled={isUpdate}
           />)
         }
       </div>
 
 
-
       <div className="col-12 pt-25">
         <InputShelf
-            value={defaultShelfId}
-            warehouseId={defaultWarehouseId}
-          />
+          name={'destinationShelfId'}
+          warehouseId={destinationWarehouseId}
+        />
+      </div>
+      <div className="col-12 pt-25">
+        <InputCoil/>
       </div>
 
-      
+
       <div className="col-12 pt-25">
         <h4 className="mt-2">Pozycje:</h4>
       </div>
@@ -86,10 +92,15 @@ export const FormProductionSheet = ({defaultWarehouseId, defaultShelfId, submitT
                 <div className="row">
 
 
+                  <div className="col-12 py-25">
+                    {i >= 1 &&
+                      <ColoredLine/>
+                    }
+                  </div>
                   <div className="col-12 pt-25">
                     <InputText
                       required
-                      name={`items[${i}].width`}
+                      name={`sheets[${i}].width`}
                       type="text"
                       icon={<ArrowRight size={SIZE_INPUT_ICON}/>}
                       label="Szerokość"
@@ -97,19 +108,19 @@ export const FormProductionSheet = ({defaultWarehouseId, defaultShelfId, submitT
                   </div>
 
                   <div className="col-12 pt-25">
-                  <InputText
-                    required
-                    name={`items[${i}].length`}
-                    type="text"
-                    icon={<ArrowUp size={SIZE_INPUT_ICON}/>}
-                    label="Długość"
-                  />
-                </div>
+                    <InputText
+                      required
+                      name={`sheets[${i}].length`}
+                      type="text"
+                      icon={<ArrowUp size={SIZE_INPUT_ICON}/>}
+                      label="Długość"
+                    />
+                  </div>
 
                   <div className="col-12 pt-25">
                     <InputText
                       required
-                      name={`items[${i}].quantity`}
+                      name={`sheets[${i}].quantity`}
                       type="text"
                       icon={<Coin size={SIZE_INPUT_ICON}/>}
                       label="Ilość"
@@ -118,16 +129,11 @@ export const FormProductionSheet = ({defaultWarehouseId, defaultShelfId, submitT
 
                   {/*<div className="col-12 pt-25">*/}
                   {/*  <InputShelf*/}
-                  {/*    name={`items[${i}].length`}*/}
+                  {/*    name={`sheets[${i}].length`}*/}
                   {/*    warehouseId={warehouseId}*/}
                   {/*  />*/}
                   {/*</div>*/}
 
-                  <div className="col-12 py-25">
-                    {inputList.length >= 2 &&
-                      <ColoredLine/>
-                    }
-                  </div>
                 </div>
               </div>
               <div className="col-1 p-0 my-auto d-flex justify-content-center">

@@ -1,8 +1,8 @@
 import React from "react";
 import {InputSelect} from "components/form/special/Select/Input_Select";
-import {Box, House} from "react-bootstrap-icons";
+import {Circle} from "react-bootstrap-icons";
 import {SIZE_INPUT_ICON} from "app/config/sizes";
-import {useCoilsList} from "app/crud/list/useCoilsList";
+import {useCoilsList} from "app/crud/list/useCoilList";
 
 export const InputCoil = (props) => {
 
@@ -13,9 +13,9 @@ export const InputCoil = (props) => {
       options={options}
       disabled={isLoading}
       isLoading={isFetching}
-      name="productId"
-      label="Produkt"
-      icon={<Box size={SIZE_INPUT_ICON}/>}
+      name="coilId"
+      label="Krąg"
+      icon={<Circle size={SIZE_INPUT_ICON}/>}
       {...props}
     />
   );

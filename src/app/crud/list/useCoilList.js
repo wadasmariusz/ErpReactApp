@@ -18,4 +18,4 @@ const useGetCoilsList = () =>
     isArray: true,
   });
 
-export const useProductsList = () => useOptions(useGetCoilsList, mapProductToOption);
+export const useCoilsList = () => useOptions(useGetCoilsList, mapProductToOption);

@@ -19,7 +19,7 @@ const ViewProductionSheetAdd = () => {
   const {warehouseId} = useParams();
   const history = useHistory();
   const methods = useForm({
-    defaultValues: {...productionSheetSchema.default(), warehouseId, items: [{productId: "", quantity: "", shelfId: ""}]},
+    defaultValues: {...productionSheetSchema.default(), warehouseId, sheets: [{productId: "", quantity: "", shelfId: ""}]},
     resolver: yupResolver(productionSheetSchema),
   });
 
