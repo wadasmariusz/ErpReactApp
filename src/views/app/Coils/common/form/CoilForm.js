@@ -53,49 +53,49 @@ export const FormCoil = ({ submitText, cancelUrl }) => {
 
       <div className="col-12 pt-25">
         <InputText
-          name={"Width"}
+          name={"width"}
           icon={<Tags size={SIZE_INPUT_ICON} />}
           label="Szerokość"
         />
       </div>
       <div className="col-12 pt-25">
         <InputText
-          name={"Thickness"}
+          name={"thickness"}
           icon={<Tags size={SIZE_INPUT_ICON} />}
           label="Grubość"
         />
       </div>
       <div className="col-12 pt-25">
         <InputText
-          name={"AmountOfZinc"}
+          name={"amountOfZinc"}
           icon={<Tags size={SIZE_INPUT_ICON} />}
           label="Ilość cynku"
         />
       </div>
       <div className="col-12 pt-25">
         <InputText
-          name={"Producer"}
+          name={"producer"}
           icon={<Tags size={SIZE_INPUT_ICON} />}
           label="Producent"
         />
       </div>
       <div className="col-12 pt-25">
         <InputText
-          name={"SteelGrade"}
+          name={"steelGrade"}
           icon={<Tags size={SIZE_INPUT_ICON} />}
           label="Gatunek"
         />
       </div>
       <div className="col-12 pt-25">
         <InputText
-          name={"Color"}
+          name={"color"}
           icon={<Tags size={SIZE_INPUT_ICON} />}
           label="Kolor"
         />
       </div>
       <div className="col-12 pt-25">
         <InputText
-          name={"CoilType"}
+          name={"coilType"}
           icon={<Tags size={SIZE_INPUT_ICON} />}
           label="ENUM DODAC NA FRONT MAT CZY POLYSK DOMYSLNIE 0 lub 1"
         />

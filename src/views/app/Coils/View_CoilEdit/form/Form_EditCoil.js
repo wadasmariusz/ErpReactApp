@@ -20,6 +20,7 @@ export const FormEditCoil = () => {
     defaultValues: {
       ...coilSchema.default(),
       ...data,
+      ...data?.coil,
       type: data?.type?.id,
     },
     resolver: yupResolver(coilSchema),
