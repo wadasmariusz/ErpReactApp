@@ -15,6 +15,7 @@ const RoutesProductionSheets = React.lazy(() => import("views/app/ProductionShee
 const RoutesInterWarehouseReceipts = React.lazy(() => import("views/app/InterWarehouseReceipts/@Routes/Routes_InterWarehouseReceipts"),);
 const RoutesOrders = React.lazy(() => import("views/app/Orders/@Routes/Routes_Orders"),);
 const RoutesProducts = React.lazy(() => import("views/app/Products/@Routes/Routes_Products"),);
+const RoutesSheets = React.lazy(() => import("views/app/Sheets/@Routes/Routes_Sheets"),);
 const RoutesCoils = React.lazy(() => import("views/app/Coils/@Routes/Routes_Coils"),);
 const RoutesUsers = React.lazy(() => import("views/app/Users/@Routes/Routes_Users"),);
 const RoutesProductKinds = React.lazy(() => import("views/app/ProductKinds/@Routes/Routes_ProductKinds"),);
@@ -39,6 +40,10 @@ export const RoutesApp = () => {
       <RootRoute
         path={route["app.products"]}
         component={RoutesProducts}
+      />
+      <RootRoute
+        path={route["app.sheets"]}
+        component={RoutesSheets}
       />
       <RootRoute
         path={route["app.coils"]}

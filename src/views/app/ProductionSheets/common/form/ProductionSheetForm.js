@@ -19,7 +19,7 @@ export const productionSheetSchema = yup.object().shape({
   coilId: yup.number().required(),
   sheets: yup.array().of(
     yup.object().shape({
-      width: yup.string().required(),
+      width: yup.string(),
       quantity: yup.string().required(),
       length: yup.string().required()
     })
@@ -99,15 +99,15 @@ export const FormProductionSheet = ({defaultWarehouseId, submitText, cancelUrl, 
                   </div>
                   <div className="col-12 pt-25">
                     <InputText
-                      required
+                      value="1.25"
                       name={`sheets[${i}].width`}
-                      type="text"
-                      icon={<ArrowRight size={SIZE_INPUT_ICON}/>}
+                      type="hidden"
+                      // icon={<ArrowRight size={SIZE_INPUT_ICON}/>}
                       label="Szerokość"
                     />
                   </div>
 
-                  <div className="col-12 pt-25">
+                  <div className="col-6 pt-25">
                     <InputText
                       required
                       name={`sheets[${i}].length`}
@@ -117,7 +117,7 @@ export const FormProductionSheet = ({defaultWarehouseId, submitText, cancelUrl, 
                     />
                   </div>
 
-                  <div className="col-12 pt-25">
+                  <div className="col-6 pt-25">
                     <InputText
                       required
                       name={`sheets[${i}].quantity`}

@@ -16,7 +16,7 @@ import {
   Palette2,
   PaletteFill,
   ArrowBarLeft,
-  ArrowLeftCircle, ArrowRightCircle
+  ArrowLeftCircle, ArrowRightCircle, BoxSeam, Square
 } from "react-bootstrap-icons";
 import {route} from "app/router/urls/routes";
 
@@ -59,6 +59,13 @@ const navigationConfig = (t = () => '') => [
     type: "item",
     icon: <Circle size={20}/>,
     navLink: route['app.coils'],
+  },
+  {
+    id: "sheet",
+    title: 'Blachy',
+    type: "item",
+    icon: <Square size={20}/>,
+    navLink: route['app.sheets'],
   },
   {
     id: "productKind",
