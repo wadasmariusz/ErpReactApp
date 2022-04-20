@@ -17,7 +17,7 @@ export const SheetsFilterBox = ({
 
   useEffect(() => {
     applyFilters();
-  })
+  }, [category, kind])
 
   return (
     <>
