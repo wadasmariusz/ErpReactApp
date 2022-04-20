@@ -21,7 +21,7 @@ const ViewSheets = () => {
   return (
     <>
       <div className="container py-1">
-      <SheetsFilterBox filters={nextFilters} {...filterActions}/>
+
         <QueryProvider {...query} withDefaultPagination>
           <div className="card p-1">
             <QueryHasNoResults>
